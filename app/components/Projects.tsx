@@ -3,18 +3,19 @@ import { Disclosure, Transition } from "@headlessui/react"
 import Image from "next/image"
 export default function Projects(){
     return(
-        <div id="projects" className="bg-black px-40 py-10 text-white">
+        <div id="projects" className="bg-black p-2 py-10 md:px-40 md:py-10 text-white">
             <div className="text-center">    
                 <h1 className="font-bold text-4xl">Selected Projects</h1>
                 <p>Here is a <span className="text-secondary text-md">Sample of Projects</span> I Have Worked On.</p>
             </div>
 
-            <div className="mt-20 grid grid-cols-2 gap-2">
+            <div className="mt-8 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-2">
                 {/* pbsf */}
                 <div>
                     <h2 className="font-bold text-2xl">Playbook Sales Force Telkomsel Balikpapan</h2>
                     <p>Fullstack Web Developer (Jul 2021 - Jul 2023)</p>
                     <hr className="w-12 h-1 rounded border-0 bg-secondary mt-2"/>
+                    <Image width={600} height={600} className="md:hidden mt-4 h-96" alt="PBSF" src="/assets/projects/pbsf/mockup.png"/>
                     <p className="mt-4 text-paragraf text-justify text-md">
                     Application for monitoring Telkomsel Balikpapan Sales Force activities. Sales performs checkin, reporting and checkout on the mobile application. By using API, integration is carried out from mobile to web applications for monitoring sales activities.
                     </p>
@@ -119,15 +120,16 @@ export default function Projects(){
                     </Disclosure>
                 </div>
                 <div className="flex justify-center">
-                    <Image width={600} height={600} className="h-96" alt="PBSF" src="/assets/projects/pbsf/mockup.png"/>
+                    <Image width={600} height={600} className="hidden md:block h-96" alt="PBSF" src="/assets/projects/pbsf/mockup.png"/>
                 </div>
             </div>
             {/* noken */}
-            <div className="mt-20 grid grid-cols-2 gap-2">
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                     <h2 className="font-bold text-2xl">Noken Super App Telkomsel Sales Agent Papua Maluku</h2>
                     <p>Fullstack Web Developer (Oct 2022 - Apr 2023)</p>
                     <hr className="w-12 h-1 rounded border-0 bg-secondary mt-2"/>
+                    <Image width={600} height={600}  className="md:hidden mt-4 h-96" alt="noken" src="/assets/projects/noken/mockup.png"/>
                     <p className="mt-4 text-paragraf text-md text-justify">
                         Application for monitoring Telkomsel Papua Maluku Sales Agent activities. The sales agent checkin via the mobile application, then documents sales activities at that location. So that from the website application, monitoring can be carried out by the admin regarding sales work. This is a development of the successful Telkomsel Balikpapan Sales Force Playbook application to be implemented by Telkomsel Papua Maluku Sales Agents with adaptation to the location and work there.
                     </p>
@@ -231,15 +233,16 @@ export default function Projects(){
                     </Disclosure>
                 </div>
                 <div className="flex justify-center">
-                    <Image width={600} height={600}  className="h-96" alt="noken" src="/assets/projects/noken/mockup.png"/>
+                    <Image width={600} height={600}  className="hidden md:block h-96" alt="noken" src="/assets/projects/noken/mockup.png"/>
                 </div>
             </div>
             {/* stela */}
-            <div className="mt-20 grid grid-cols-2 gap-2">
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                     <h2 className="font-bold text-2xl">Sistem Tiket dan Eskalasi Layanan (STELA) DPR RI</h2>
                     <p>Back End Programmer (Aug 2022 - Dec 2022)</p>
                     <hr className="w-12 h-1 rounded border-0 bg-secondary mt-2"/>
+                    <Image width={600} height={600}  className="mt-4 md:hidden h-96" alt="stela" src="/assets/projects/stela/mockup.png"/>
                     <p className="mt-4 text-paragraf text-md text-justify">
                         Ticket System Application and Service Escalation in the DPR RI area. Users can create service tickets via the website or mobile application. Then the service desk will provide feedback, if escalation is needed to the officer, then the service desk can escalate it to the officer. Users can track service tickets that they have created via the website or mobile application.
                         This is the final assignment for the MSIB program at the DPR RI.
@@ -338,15 +341,16 @@ export default function Projects(){
                     </Disclosure>
                 </div>
                 <div className="flex justify-center">
-                    <Image width={600} height={600}  className="h-96" alt="stela" src="/assets/projects/stela/mockup.png"/>
+                    <Image width={600} height={600}  className="hidden md:block h-96" alt="stela" src="/assets/projects/stela/mockup.png"/>
                 </div>
             </div>
             {/* open music api */}
-            <div className="mt-20 grid grid-cols-2 gap-2">
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                     <h2 className="font-bold text-2xl">Open Music API</h2>
                     <p>Back End Developer (May 2022)</p>
                     <hr className="w-12 h-1 rounded border-0 bg-secondary mt-2"/>
+                    <Image width={600} height={600}  className="md:hidden mt-4 h-96" alt="opemmusicapi" src="/assets/projects/openmusicapi/mockup.png"/>
                     <p className="mt-4 text-paragraf text-md text-justify">
                     This is the final task of FGA back end developer training with Dicoding partners. Server side application using REST API for music management similar to Spotify.
                     </p>
@@ -465,15 +469,16 @@ export default function Projects(){
                     </Disclosure>
                 </div>
                 <div className="flex justify-center">
-                    <Image width={600} height={600}  className="h-96" alt="opemmusicapi" src="/assets/projects/openmusicapi/mockup.png"/>
+                    <Image width={600} height={600}  className="hidden md:block h-96" alt="opemmusicapi" src="/assets/projects/openmusicapi/mockup.png"/>
                 </div>
             </div>
             {/* smoking detection app */}
-            <div className="mt-20 grid grid-cols-2 gap-2">
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                     <h2 className="font-bold text-2xl">Smoking Detection While Driving Using YOLOv7</h2>
                     <p>Fullstack Web Developer (Mar 2023 - Aug 2023)</p>
                     <hr className="w-12 h-1 rounded border-0 bg-secondary mt-2"/>
+                    <Image width={600} height={600}  className="md:hidden mt-4 h-96" alt="smokedetection" src="/assets/projects/smokingdetection/mockup.png"/>
                     <p className="mt-4 text-paragraf text-md">
                         Website-based application to detect motorbike riders who smoke. Using the YOLOv7 deep learning object detection method to detect motorbike riders who smoke. This is my final thesis project for a bachelor of informatics at Ahmad Dahlan University.
                     </p>
@@ -576,15 +581,16 @@ export default function Projects(){
                     </Disclosure>
                 </div>
                 <div className="flex justify-center">
-                    <Image width={600} height={600}  className="h-96" alt="smokedetection" src="/assets/projects/smokingdetection/mockup.png"/>
+                    <Image width={600} height={600}  className="hidden md:block h-96" alt="smokedetection" src="/assets/projects/smokingdetection/mockup.png"/>
                 </div>
             </div>
             {/* P2P lending service */}
-            <div className="mt-20 grid grid-cols-2 gap-2">
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                     <h2 className="font-bold text-2xl">P2P Lending Service</h2>
                     <p>Back End Developer (Jun 2023)</p>
                     <hr className="w-12 h-1 rounded border-0 bg-secondary mt-2"/>
+                    <Image width={600} height={600}  className="md:hidden mt-4 h-96" alt="investree" src="/assets/projects/investree/mockup.png"/>
                     <p className="mt-4 text-paragraf text-md">
                     This is a simple service for P2P Lending transactions as the final assignment of Investree virtual internship. This service is a back end application with a REST API for authentication, authorization and lending and borrowing transaction features.
                     </p>
@@ -671,15 +677,16 @@ export default function Projects(){
                     </Disclosure>
                 </div>
                 <div className="flex justify-center">
-                    <Image width={600} height={600}  className="h-96" alt="investree" src="/assets/projects/investree/mockup.png"/>
+                    <Image width={600} height={600}  className="hidden md:block h-96" alt="investree" src="/assets/projects/investree/mockup.png"/>
                 </div>
             </div>
             {/* social commerce reseller service */}
-            <div className="mt-20 grid grid-cols-2 gap-2">
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                     <h2 className="font-bold text-2xl">Social Commerce Reseller Service</h2>
                     <p>Back End Developer (Jul 2023)</p>
                     <hr className="w-12 h-1 rounded border-0 bg-secondary mt-2"/>
+                    <Image width={600} height={600}  className="md:hidden mt-4 h-96" alt="evermos" src="/assets/projects/evermos/mockup.png"/>
                     <p className="mt-4 text-paragraf text-md">
                         This is the final assignment of the virtual internship program at Evermos. By creating a simple API service for social commerce resellers using Golang and MySQL.
                     </p>
@@ -782,7 +789,7 @@ export default function Projects(){
                     </Disclosure>
                 </div>
                 <div className="flex justify-center">
-                    <Image width={600} height={600}  className="h-96" alt="evermos" src="/assets/projects/evermos/mockup.png"/>
+                    <Image width={600} height={600}  className="hidden md:block h-96" alt="evermos" src="/assets/projects/evermos/mockup.png"/>
                 </div>
             </div>
         </div>

@@ -51,7 +51,7 @@ const experiences = [
 
 export default function Experiences(){
     return (
-        <div id="experiences" className="bg-primary px-40 py-10 text-white">
+        <div id="experiences" className="bg-primary p-2 py-10 md:px-40 md:py-10 text-white">
             <div className="text-center">    
                 <h1 className="font-bold text-4xl">Experience</h1>
                 <p>Below is my <span className="text-secondary text-md"> experience.</span></p>

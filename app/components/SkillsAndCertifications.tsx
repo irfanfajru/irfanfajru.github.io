@@ -94,10 +94,10 @@ const certifications = [
 export default function SkillsAndCertifications(){
 
     return (
-        <div id="skillsandcertifications" className="bg-primary px-40 py-10 text-white">
+        <div id="skillsandcertifications" className="bg-primary p-2 py-10 md:px-40 md:py-10 text-white">
             <TextSection title="Skills" />
             <p className="text-md text-justify mt-2 mb-5 text-paragraf">I dont limit my abilities, I will continue to study technology. Following are the skills that I have.</p>
-            <div className="flex space-x-20 justify-center mb-5">
+            <div className="flex space-x-8 md:space-x-20 justify-center mb-5">
                 <ul className="list-disc">
                     {skills.map((v,i)=>{
                         if(i<6) return (
@@ -122,7 +122,7 @@ export default function SkillsAndCertifications(){
             </div>
 
             <TextSection title="Certifications" />
-            <div className="grid grid-cols-3 gap-2 mt-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-4">
                 {certifications.map((v,i)=>(
                     <div key={`certificate${i}`} className={v.title=="Junior Web Developer"?"row-span-2":""}>            
                         <figure className="h-auto max-w-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
