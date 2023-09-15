@@ -492,7 +492,7 @@ export default function Projects(){
                                 <div className="mt-2">
                                     <div className="text-justify mb-2 text-paragraf">
                                         <p className="mb-2 text-justify">
-                                        The detection process is carried out with 2 models. The first detection was carried out using YOLOv7 weights from MS COCO to detect motorbike riders (person and motorcycle). Then, from the motorbike rider's bounding box, detection is carried out using the second model to detect cigarettes. If cigarettes are detected in the motorbike rider's bounding box, a smoking class bounding box will be created.
+                                        The detection process is carried out with 2 models. The first detection was carried out using YOLOv7 weights from MS COCO to detect motorbike riders (person and motorcycle). Then, from the motorbike riders bounding box, detection is carried out using the second model to detect cigarettes. If cigarettes are detected in the motorbike riders bounding box, a smoking class bounding box will be created.
                                         </p>
                                         <p className="mb-2 text-justify">
                                         The website application uses NextJS as a client. The client will use the post method to send image input to the server. The server (Flask) will detect the input image and return the detection path. The client will display the detection results from the API response to the web browser.
@@ -557,7 +557,7 @@ export default function Projects(){
                                     <span className="text-secondary"> results of this project ?</span>
                                 </p>
                                 <p className="text-paragraf text-justify">
-                                The application successfully detects drivers who smoke from the image input. With the model's accuracy in detecting smoking motorbike riders of 97%, it was tested on 20 images of smoking motorbike riders and 20 images of non-smoking motorbike riders. Successfully presented to the thesis examiners and got an "A" grade.
+                                The application successfully detects drivers who smoke from the image input. With the model accuracy in detecting smoking motorbike riders of 97%, it was tested on 20 images of smoking motorbike riders and 20 images of non-smoking motorbike riders. Successfully presented to the thesis examiners and got an A grade.
                                 </p>
                                 <p className="text-paragraf mt-2">
                                 You can check this project via the following github repository link :
@@ -586,7 +586,7 @@ export default function Projects(){
                     <p>Back End Developer (Jun 2023)</p>
                     <hr className="w-12 h-1 rounded border-0 bg-secondary mt-2"/>
                     <p className="mt-4 text-paragraf text-md">
-                    This is a simple service for P2P Lending transactions as the final assignment of Investree's virtual internship. This service is a back end application with a REST API for authentication, authorization and lending and borrowing transaction features.
+                    This is a simple service for P2P Lending transactions as the final assignment of Investree virtual internship. This service is a back end application with a REST API for authentication, authorization and lending and borrowing transaction features.
                     </p>
                     <Disclosure>
                             {({open})=>(

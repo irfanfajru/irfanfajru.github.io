@@ -57,8 +57,9 @@ export default function Experiences(){
                 <p>Below is my <span className="text-secondary text-md"> experience.</span></p>
             </div>
             <div className="space-y-8 mt-8">
-                {experiences.map((v)=>(
+                {experiences.map((v,i)=>(
                 <ExperienceCard 
+                key={`experience ${i}`}
                 company={v.company} 
                 role={v.role}
                 startDate={v.startDate}

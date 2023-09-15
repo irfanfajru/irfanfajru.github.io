@@ -5,7 +5,7 @@ export default function AboutMe(){
             <TextSection title="About Me"/>
             <div className="flex flex-row space-x-24 mt-8">
                 <div className="basis-1/2">
-                    <h3 className="text-4xl font-bold">I'm Back End Developer, based in Indonesia
+                    <h3 className="text-4xl font-bold">Back End Developer, based in Indonesia
                     <span className='text-secondary text-6xl'>.</span>
                     </h3>
                     <p className="text-md text-justify mt-2 mb-5 text-paragraf">
@@ -21,7 +21,7 @@ export default function AboutMe(){
                     <h3 className="text-4xl font-bold">Any Type Of Query & Discussion 
                     <span className='text-secondary text-6xl'>.</span>
                     </h3>
-                    <p className="text-md text-justify mt-2 mb-10 text-paragraf">Let's talk with me</p>
+                    <p className="text-md text-justify mt-2 mb-10 text-paragraf">Lets talk with me</p>
                     <a href="mailto:irfanfajru025@gmail.com" className="border-b-2 border-secondary text-xl">irfanfajru025@gmail.com</a>
                 </div>
             </div>
