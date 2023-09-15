@@ -27,67 +27,67 @@ const skills = [
 const certifications = [
     {
         title:"Belajar Dasar Pemrograman JavaScript",
-        url:"/assets/certifications/Dicoding-Dasar JS.png",
+        url:"/assets/Certifications/Dicoding-Dasar JS.png",
     },
     {
         title:"Belajar Membuat Aplikasi Back-End untuk Pemula",
-        url:"/assets/certifications/Dicoding-BE.png",
+        url:"/assets/Certifications/Dicoding-BE.png",
     },
     {
         title:"Belajar Fundamental Aolikasi Back-End",
-        url:"/assets/certifications/Dicoding-FBE.png"
+        url:"/assets/Certifications/Dicoding-FBE.png"
     },
     {
         title:"Fresh Graduate Academy Back-End Developer",
-        url:"/assets/certifications/FGA-BE.png",
+        url:"/assets/Certifications/FGA-BE.png",
     },
     {
         title:"Junior Web Developer",
-        url:"/assets/certifications/JWD.png",
+        url:"/assets/Certifications/JWD.png",
     },
     {
         title:"MSIB MDRR DPR RI",
-        url:"/assets/certifications/MDRR-MSIB.png",
+        url:"/assets/Certifications/MDRR-MSIB.png",
     },
     {
         title:"Back End Development and API's",
-        url:"/assets/certifications/BEDevnAPI-freecodecamp.png",
+        url:"/assets/Certifications/BEDevnAPI-freecodecamp.png",
     },
     {
         title:"Oracle Java Foundations",
-        url:"/assets/certifications/Oracle-JF.png",
+        url:"/assets/Certifications/Oracle-JF.png",
     },
     {
         title:"Oracle Java Programming",
-        url:"/assets/certifications/Oracle-JP.png",
+        url:"/assets/Certifications/Oracle-JP.png",
     },
     {
         title:"FGA Java Foundation & Java Programming",
-        url:"/assets/certifications/FGA-Java.png",
+        url:"/assets/Certifications/FGA-Java.png",
     },
     {
         title:"Pelatihan Junior Web Developer",
-        url:"/assets/certifications/Pelatihan-JWD.png",
+        url:"/assets/Certifications/Pelatihan-JWD.png",
     },
     {
         title:"VIX Evermos Back End Developer Competencies",
-        url:"/assets/certifications/VIX-Evermos-Competencies.png",
+        url:"/assets/Certifications/VIX-Evermos-Competencies.png",
     },
     {
         title:"VIX Evermos Back End Developer Completion",
-        url:"/assets/certifications/VIX-Evermos-Completion.png",
+        url:"/assets/Certifications/VIX-Evermos-Completion.png",
     },
     {
         title:"VIX Investree Back End Developer Competencies",
-        url:"/assets/certifications/VIX-Investree-Competencies.png",
+        url:"/assets/Certifications/VIX-Investree-Competencies.png",
     },
     {
         title:"VIX Investree Back End Developer Completion",
-        url:"/assets/certifications/VIX-Investeree-Completion.png",
+        url:"/assets/Certifications/VIX-Investeree-Completion.png",
     },
     {
         title:"Asisten Praktikum",
-        url:"/assets/certifications/AsistenPraktikum.png",
+        url:"/assets/Certifications/AsistenPraktikum.png",
     },
 ]
 
