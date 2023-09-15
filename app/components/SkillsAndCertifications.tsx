@@ -27,7 +27,7 @@ const skills = [
 const certifications = [
     {
         title:"Belajar Dasar Pemrograman JavaScript",
-        url:"/assets/certifications/Dicoding-Dasar JS.png",
+        url:"/assets/Certifications/Dicoding-Dasar JS.png",
     },
     {
         title:"Belajar Membuat Aplikasi Back-End untuk Pemula",
