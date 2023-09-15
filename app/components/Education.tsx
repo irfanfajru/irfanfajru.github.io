@@ -11,7 +11,7 @@ export default function Education(){
                     <h3 className="text-lg font-bold text-white">Ahmad Dahlan University</h3>
                     <p className="text-xs text-gray">2019 - 2023</p>
                     <p className="text-paragraf text-sm text-justify mt-2">Bachelor of Informatics - GPA 3.85</p>
-                    <p className="text-paragraf text-sm text-justify mt-2">During college, I studied informatics such as software engineering, artificial intelligence, informatics project management and many more. Besides studying, I also become a lab assistant to teach basic programming. I set a target to graduate on time with a cum laude predicate, and I succeeded in realizing that target. I graduated cum laude after exactly 4 years of study, with my undergraduate thesis entitled "SMOKING DETECTION WHILE DRIVING USING YOLOv7" related to artificial intelligence.</p>
+                    <p className="text-paragraf text-sm text-justify mt-2">During college, I studied informatics such as software engineering, artificial intelligence, informatics project management and many more. Besides studying, I also become a lab assistant to teach basic programming. I set a target to graduate on time with a cum laude predicate, and I succeeded in realizing that target. I graduated cum laude after exactly 4 years of study, with my undergraduate thesis entitled SMOKING DETECTION WHILE DRIVING USING YOLOv7 related to artificial intelligence.</p>
                 </div>
                 <div className="flex justify-center">
                     <iframe src="https://lottie.host/?file=5aaa650b-564f-4cd9-929d-a8edcaf17f23/lwIL1uwHhL.json"></iframe>

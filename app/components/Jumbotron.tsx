@@ -5,7 +5,7 @@ export default function Jumbotron(){
     return (
         <div id='home' className="flex bg-primary pt-10 px-40 text-white justify-center">
             <div className='pt-12'>
-                <p className='text-2xl'>Hello, it's me</p>
+                <p className='text-2xl'>Hello, it&apos;s me</p>
                 <h2 className='font-bold text-5xl'>Muhammad Irfan Fajru 
                 <br />Ramadhan 
                 <span className='text-secondary text-6xl'>.</span></h2>

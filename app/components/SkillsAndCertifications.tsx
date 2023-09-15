@@ -96,26 +96,26 @@ export default function SkillsAndCertifications(){
     return (
         <div id="skillsandcertifications" className="bg-primary px-40 py-10 text-white">
             <TextSection title="Skills" />
-            <p className="text-md text-justify mt-2 mb-5 text-paragraf">I don't limit my abilities, I will continue to study technology. Following are the skills that I have.</p>
+            <p className="text-md text-justify mt-2 mb-5 text-paragraf">I dont limit my abilities, I will continue to study technology. Following are the skills that I have.</p>
             <div className="flex space-x-20 justify-center mb-5">
                 <ul className="list-disc">
                     {skills.map((v,i)=>{
                         if(i<6) return (
-                            <li className="text-secondary"> <span className="text-white">{v}</span> </li>
+                            <li key={`skill${i}`} className="text-secondary"> <span className="text-white">{v}</span> </li>
                         ) 
                     })}
                 </ul>
                 <ul className="list-disc">
                     {skills.map((v,i)=>{
                         if(i>5 && i<14) return (
-                            <li className="text-secondary"> <span className="text-white">{v}</span> </li>
+                            <li key={`skill${i}`} className="text-secondary"> <span className="text-white">{v}</span> </li>
                         ) 
                     })}
                 </ul>
                 <ul className="list-disc">
                     {skills.map((v,i)=>{
                         if(i>13) return (
-                            <li className="text-secondary"> <span className="text-white">{v}</span> </li>
+                            <li key={`skill${i}`} className="text-secondary"> <span className="text-white">{v}</span> </li>
                         ) 
                     })}
                 </ul>
@@ -123,10 +123,10 @@ export default function SkillsAndCertifications(){
 
             <TextSection title="Certifications" />
             <div className="grid grid-cols-3 gap-2 mt-4">
-                {certifications.map((v)=>(
-                    <div className={v.title=="Junior Web Developer"?"row-span-2":""}>            
+                {certifications.map((v,i)=>(
+                    <div key={`certificate${i}`} className={v.title=="Junior Web Developer"?"row-span-2":""}>            
                         <figure className="h-auto max-w-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
-                            <img className="h-auto max-w-full rounded-lg" src={v.url} alt="image description"/>
+                            <Image width={600} height={600} className="h-auto max-w-full rounded-lg" src={v.url} alt="image description"/>
                         </figure>
                     </div>
                     ))}
