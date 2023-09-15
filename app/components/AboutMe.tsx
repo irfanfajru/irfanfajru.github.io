@@ -5,7 +5,7 @@ export default function AboutMe(){
             <TextSection title="About Me"/>
             <div className="grid md:grid-cols-2 md:gap-24 md:mt-8">
                 <div>
-                    <h3 className="text-lg md:text-4xl font-bold">Back End Developer, based in Indonesia
+                    <h3 className="text-md md:text-4xl font-bold">Back End Developer, based in Indonesia
                     <span className='text-secondary text-6xl'>.</span>
                     </h3>
                     <p className="text-sm md:text-md text-justify mt-2 mb-5 text-paragraf">
