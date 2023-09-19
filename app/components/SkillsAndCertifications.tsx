@@ -2,6 +2,12 @@ import TextSection from "./TextSection"
 import Image from "next/image"
 
 const skills = [
+    "HTML",
+    "CSS",
+    "React",
+    "NextJS",
+    "Tailwind CSS",
+    "Bootstrap",
     "PHP",
     "Javascript",
     "Python",
@@ -96,28 +102,43 @@ export default function SkillsAndCertifications(){
     return (
         <div id="skillsandcertifications" className="bg-primary p-2 py-10 md:px-40 md:py-10 text-white">
             <TextSection title="Skills" />
-            <p className="text-md text-justify mt-2 mb-5 text-paragraf">I dont limit my abilities, I will continue to study technology. Following are the skills that I have.</p>
-            <div className="flex space-x-8 md:space-x-20 justify-center mb-5">
+            <p className="text-sm md:text-md text-justify mt-2 mb-5 text-paragraf">I dont limit my abilities, I will continue to learn technology. Following are the skills that I have.</p>
+            <div className="grid grid-cols-2 gap-2 justify-items-center md:place-items-center md:flex md:justify-center md:space-x-20 mb-5">
                 <ul className="list-disc">
-                    {skills.map((v,i)=>{
-                        if(i<6) return (
-                            <li key={`skill${i}`} className="text-secondary"> <span className="text-white">{v}</span> </li>
-                        ) 
-                    })}
+                    <li className="text-secondary"> <span className="text-white">HTML</span> </li>
+                    <li className="text-secondary"> <span className="text-white">CSS</span> </li>
+                    <li className="text-secondary"> <span className="text-white">React</span> </li>
+                    <li className="text-secondary"> <span className="text-white">NextJS</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Tailwind CSS</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Bootstrap</span> </li>
                 </ul>
                 <ul className="list-disc">
-                    {skills.map((v,i)=>{
-                        if(i>5 && i<14) return (
-                            <li key={`skill${i}`} className="text-secondary"> <span className="text-white">{v}</span> </li>
-                        ) 
-                    })}
+                    <li className="text-secondary"> <span className="text-white">PHP</span> </li>
+                    <li className="text-secondary"> <span className="text-white">JavaScript</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Python</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Golang</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Java</span> </li>
+                    <li className="text-secondary"> <span className="text-white">SQL</span> </li>
+                    <li className="text-secondary hidden md:list-item"> <span className="text-white">MySQL</span> </li>
                 </ul>
                 <ul className="list-disc">
-                    {skills.map((v,i)=>{
-                        if(i>13) return (
-                            <li key={`skill${i}`} className="text-secondary"> <span className="text-white">{v}</span> </li>
-                        ) 
-                    })}
+                    <li className="text-secondary md:hidden"> <span className="text-white">MySQL</span> </li>
+                    <li className="text-secondary"> <span className="text-white">PostgreSQL</span> </li>
+                    <li className="text-secondary"> <span className="text-white">MongoDB</span> </li>
+                    <li className="text-secondary"> <span className="text-white">API</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Git</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Postman</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Docker</span> </li>
+                    <li className="text-secondary hidden md:list-item"> <span className="text-white">Laravel</span> </li>
+                </ul>
+                <ul className="list-disc row-start-2 col-start-2">
+                    <li className="text-secondary md:hidden"> <span className="text-white">Laravel</span> </li>
+                    <li className="text-secondary"> <span className="text-white">NodeJS</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Spring Boot</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Flask</span> </li>
+                    <li className="text-secondary"> <span className="text-white">GoFiber</span> </li>
+                    <li className="text-secondary"> <span className="text-white">Redis</span> </li>
+                    <li className="text-secondary"> <span className="text-white">RabbitMQ</span> </li>
                 </ul>
             </div>
 
