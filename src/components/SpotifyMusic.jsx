@@ -6,7 +6,7 @@ export default function SpotifyMusic() {
                 src="https://open.spotify.com/embed/track/7n64vC6dLyGOuyi0An8b5O?utm_source=generator&theme=0"
                 width="300"
                 height="80"
-                allowFullScreen
+                title="Now playing: Spotify embed"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
             />
