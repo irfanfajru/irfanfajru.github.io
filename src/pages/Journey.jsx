@@ -60,7 +60,7 @@ export default function Journey() {
     const [onBoard, setOnBoard] = useState(true);
 
     return <div className='h-screen w-full'>
-        <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+        <div className='absolute top-24 left-0 right-0 z-10 flex items-center justify-center mx-2'>
             {currentStage && <JourneyInfo currentStage={currentStage} />}
         </div>
         <Canvas

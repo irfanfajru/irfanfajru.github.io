@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { BookOpenIcon } from '@heroicons/react/24/solid';
 import Avatar from "../assets/images/avatar.jpeg"
 import GithubIco from "../assets/icons/github.png"
 import GmailIco from "../assets/icons/gmail.png"
@@ -8,6 +6,12 @@ import { useState } from "react";
 import ExperienceModal from "./ExperienceModal";
 import SkillModal from "./SkillModal";
 import ProjectsModal from "./ProjectsModal";
+import HelloImg from "../assets/images/hello.png"
+import GraduateImg from "../assets/images/graduation.png"
+import ExperienceImg from "../assets/images/experience.png"
+import SkillImg from "../assets/images/skills.png"
+import ProjectsImg from "../assets/images/projects.png"
+import ContactImg from "../assets/images/contact.png"
 
 function getCurrentTime() {
     const now = new Date();
@@ -23,14 +27,10 @@ const JourneyInfo = ({ currentStage }) => {
     // OnBoard
     if (currentStage === 1)
         return (
-            <div className="flex items-start gap-2.5">
-                <img className="w-8 h-8 rounded-full" src={Avatar} alt="irfan img"></img>
-                <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                        <span className="text-sm font-semibold text-white">IrfanFajru</span>
-                        <span className="text-sm font-normal text-gray-500 text-gray-400">{getCurrentTime()}</span>
-                    </div>
-                    <p className="text-sm font-normal py-2.5 text-white">
+            <div className="flex items-start gap-1">
+                <img className="w-24 h-34" src={HelloImg} alt="ava img"></img>
+                <div className="mt-8 flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
+                    <p className="text-sm font-normal text-white">
                         Hi, I'm
                         <span className='font-semibold mx-2 text-white'>IrfanFajru</span>
                         👋
@@ -45,18 +45,12 @@ const JourneyInfo = ({ currentStage }) => {
     if (currentStage === 2) {
         return (
             <>
-                <div className="flex items-start gap-2.5">
-                    <img className="w-8 h-8 rounded-full" src={Avatar} alt="irfan img"></img>
-                    <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
-                        <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span className="text-sm font-semibold text-white">IrfanFajru</span>
-                            <span className="text-sm font-normal text-gray-500 text-gray-400">{getCurrentTime()}</span>
-                        </div>
-                        <p className="text-sm font-normal py-2.5 text-white">
-                            Graduated from Ahmad Dahlan University (2019-2023)
-                            with a degree in Informatics and a GPA of 3.85 (Cum Laude).
-                            <br></br>
-                            My thesis? Smoking detection while driving with YOLOv7. 🚗💨
+                <div className="flex items-start gap-1">
+                    <img className="w-24 h-34" src={GraduateImg} alt="irfan img"></img>
+                    <div className="mt-8 flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
+                        <p className="text-sm font-normal text-white">
+                            I studied Informatics at Ahmad Dahlan University (2019–2023),
+                            where I explored AI through my thesis on detecting smoking while driving with YOLOv7. 🚗💨
                         </p>
                     </div>
                 </div>
@@ -68,26 +62,28 @@ const JourneyInfo = ({ currentStage }) => {
     if (currentStage === 3) {
         return (
             <>
-                <div className="flex items-start gap-2.5">
-                    <img className="w-8 h-8 rounded-full" src={Avatar} alt="irfan img"></img>
-                    <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
-                        <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span className="text-sm font-semibold text-white">IrfanFajru</span>
-                            <span className="text-sm font-normal text-gray-500 text-gray-400">{getCurrentTime()}</span>
+                <div className="flex items-start gap-1">
+                    <img className="w-24 h-34" src={ExperienceImg} alt="irfan img"></img>
+
+                    <div className="mt-8 flex flex-col gap-1">
+                        <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
+                            <p className="text-sm font-normal text-white">
+                                Every step has been a lesson.
+                                Here's a look at the experiences that shaped my journey.
+                            </p>
                         </div>
-                        <p className="text-sm font-normal py-2.5 text-white">
-                            Every step has been a lesson.
-                            Here's a look at the experiences that shaped my journey.
-                        </p>
-                        <div className="flex justify-center">
-                            <button onClick={(e) => {
+
+                        <div className="flex justify-end"
+                            onClick={(e) => {
                                 setIsModalOpen(true)
                             }}
-                                className="cursor-pointer text-blue-600 text-sm font-normal hover:underline">
-                                Read More
+                        >
+                            <button type="button" className="cursor-pointer px-3 py-2 text-xs font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+                                My Journey So Far
                             </button>
                         </div>
                     </div>
+
                 </div>
                 <ExperienceModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
             </>
@@ -98,23 +94,24 @@ const JourneyInfo = ({ currentStage }) => {
     if (currentStage === 4) {
         return (
             <>
-                <div className="flex items-start gap-2.5">
-                    <img className="w-8 h-8 rounded-full" src={Avatar} alt="irfan img"></img>
-                    <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
-                        <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span className="text-sm font-semibold text-white">IrfanFajru</span>
-                            <span className="text-sm font-normal text-gray-500 text-gray-400">{getCurrentTime()}</span>
+                <div className="flex items-start gap-1">
+                    <img className="w-24 h-34" src={SkillImg} alt="irfan img"></img>
+
+                    <div className="mt-8 flex flex-col gap-1">
+                        <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
+                            <p className="text-sm font-normal text-white">
+                                Learning is a continuous journey for me.
+                                Every new skill I acquire is just another step toward becoming the best version of myself.
+                            </p>
                         </div>
-                        <p className="text-sm font-normal py-2.5 text-white">
-                            Learning is a continuous journey for me.
-                            Every new skill I acquire is just another step toward becoming the best version of myself.
-                        </p>
-                        <div className="flex justify-center">
-                            <button onClick={(e) => {
+
+                        <div className="flex justify-end"
+                            onClick={(e) => {
                                 setIsModalOpen(true)
                             }}
-                                className="cursor-pointer text-blue-600 text-sm font-normal hover:underline">
-                                Read More
+                        >
+                            <button type="button" className="cursor-pointer px-3 py-2 text-xs font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+                                See My Growth
                             </button>
                         </div>
                     </div>
@@ -128,24 +125,24 @@ const JourneyInfo = ({ currentStage }) => {
     if (currentStage === 5) {
         return (
             <>
-                <div className="flex items-start gap-2.5">
-                    <img className="w-8 h-8 rounded-full" src={Avatar} alt="irfan img"></img>
-                    <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
-                        <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span className="text-sm font-semibold text-white">IrfanFajru</span>
-                            <span className="text-sm font-normal text-gray-500 text-gray-400">{getCurrentTime()}</span>
+                <div className="flex items-start gap-1">
+                    <img className="w-24 h-34" src={ProjectsImg} alt="irfan img"></img>
+                    <div className="mt-8 flex flex-col gap-1">
+                        <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
+                            <p className="text-sm font-normal text-white">
+                                The projects I've worked on
+                                have been great opportunities to challenge myself and level up my skills.
+                                They each reflect my journey and passion for tech.
+                            </p>
                         </div>
-                        <p className="text-sm font-normal py-2.5 text-white">
-                            The projects I've worked on
-                            have been great opportunities to challenge myself and level up my skills.
-                            They each reflect my journey and passion for tech.
-                        </p>
-                        <div className="flex justify-center">
-                            <button onClick={(e) => {
+
+                        <div className="flex justify-end"
+                            onClick={(e) => {
                                 setIsModalOpen(true)
                             }}
-                                className="cursor-pointer text-blue-600 text-sm font-normal hover:underline">
-                                Read More
+                        >
+                            <button type="button" className="cursor-pointer px-3 py-2 text-xs font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 ">
+                                Explore What I’ve Built
                             </button>
                         </div>
                     </div>
@@ -158,14 +155,10 @@ const JourneyInfo = ({ currentStage }) => {
     // Contact
     if (currentStage === 6) {
         return (
-            <div className="flex items-start gap-2.5">
-                <img className="w-8 h-8 rounded-full" src={Avatar} alt="irfan img"></img>
-                <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                        <span className="text-sm font-semibold text-white">IrfanFajru</span>
-                        <span className="text-sm font-normal text-gray-500 text-gray-400">{getCurrentTime()}</span>
-                    </div>
-                    <p className="text-sm font-normal py-2.5 text-white">
+            <div className="flex items-start gap-1">
+                <img className="w-24 h-34" src={ContactImg} alt="irfan img"></img>
+                <div className="mt-8 flex flex-col gap-2.5 w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
+                    <p className="text-sm font-normal text-white">
                         Feel free to reach out.
                         I'm always open to new opportunities and discussions.
                     </p>
