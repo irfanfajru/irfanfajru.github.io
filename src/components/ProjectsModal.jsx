@@ -133,16 +133,16 @@ export default function ProjectsModal({ isOpen, setIsOpen }) {
                 <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full">
                     <DialogBackdrop className="fixed inset-0 bg-black opacity-50" />
                     <div className="relative p-4 w-full max-w-5xl max-h-full">
-                        <div className="relative bg-white rounded-xl shadow-sm dark:bg-gray-700">
+                        <div className="relative rounded-xl shadow-sm bg-gray-700">
                             {/* Modal Header */}
-                            <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                            <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
+                                <h3 className="text-xl font-semibold text-white">
                                     Projects
                                 </h3>
                                 <button
                                     type="button"
                                     onClick={closeModal}
-                                    className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    className="text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white"
                                 >
                                     <svg
                                         className="w-3 h-3"
