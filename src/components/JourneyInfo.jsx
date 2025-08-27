@@ -68,8 +68,7 @@ const JourneyInfo = ({ currentStage }) => {
                     <div className="mt-8 flex flex-col gap-1">
                         <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
                             <p className="text-sm font-normal text-white">
-                                Every step has been a lesson.
-                                Here's a look at the experiences that shaped my journey.
+                                Every flight carries a lesson. These are the skies that shaped my path.
                             </p>
                         </div>
 
@@ -79,7 +78,7 @@ const JourneyInfo = ({ currentStage }) => {
                             }}
                         >
                             <button type="button" className="cursor-pointer px-3 py-2 text-xs font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-                                My Journey So Far
+                                My Flight So Far
                             </button>
                         </div>
                     </div>
@@ -100,8 +99,7 @@ const JourneyInfo = ({ currentStage }) => {
                     <div className="mt-8 flex flex-col gap-1">
                         <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
                             <p className="text-sm font-normal text-white">
-                                Learning is a continuous journey for me.
-                                Every new skill I acquire is just another step toward becoming the best version of myself.
+                                Every new skill is a wing I've earned, every certification a wind beneath them, carrying me further on my path.
                             </p>
                         </div>
 
@@ -111,7 +109,7 @@ const JourneyInfo = ({ currentStage }) => {
                             }}
                         >
                             <button type="button" className="cursor-pointer px-3 py-2 text-xs font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-                                See My Growth
+                                See My Wings
                             </button>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 import { Dialog, DialogBackdrop } from '@headlessui/react'
 import { useState } from 'react'
+import SkyKidImg from "../assets/images/wings-of-mastery.png"
 
 const skills = {
     markup: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Bootstrap"],
@@ -90,12 +91,12 @@ export default function SkillModal({ isOpen, setIsOpen }) {
             <Dialog open={isOpen} onClose={closeModal}>
                 <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full">
                     <DialogBackdrop className="fixed inset-0 bg-black opacity-50" />
-                    <div className="relative p-4 w-full max-w-md max-h-full">
+                    <div className="relative p-4 w-full max-w-5xl max-h-full">
                         <div className="relative rounded-xl shadow-sm bg-gray-700">
                             {/* Modal Header */}
                             <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600 ">
                                 <h3 className="text-xl font-semibold text-white">
-                                    Skill & Certification
+                                    Wings of Mastery
                                 </h3>
                                 <button
                                     type="button"
@@ -122,64 +123,86 @@ export default function SkillModal({ isOpen, setIsOpen }) {
                             </div>
 
                             {/* Modal Body with overflow */}
-                            <div className="p-4 md:p-5 space-y-4 overflow-y-auto max-h-[calc(100vh-12rem)]">
-
-                                <h5 className="mb-2 text-lg font-semibold text-white text-center">Markup & Styling</h5>
-                                <div className="flex flex-wrap gap-1 justify-center mb-12">
-                                    {skills.markup.map(value => (
-                                        <span key={`markup-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-gray-800 text-gray-300">{value}</span>
-                                    ))}
+                            <div className="flex">
+                                <div className='w-1/2 justify-center items-center hidden md:flex'>
+                                    <img src={SkyKidImg} alt="" />
                                 </div>
 
-                                <h5 className="mb-2 text-lg font-semibold text-white text-center">Frontend Development</h5>
-                                <div className="flex flex-wrap gap-1 justify-center mb-12">
-                                    {skills.fe.map(value => (
-                                        <span key={`fe-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-gray-800 text-gray-300">{value}</span>
-                                    ))}
-                                </div>
-
-                                <h5 className="mb-2 text-lg font-semibold text-white text-center">Backend Development</h5>
-                                <div className="flex flex-wrap gap-1 justify-center mb-12">
-                                    {skills.be.map(value => (
-                                        <span key={`be-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-gray-800 text-gray-300">{value}</span>
-                                    ))}
-                                </div>
-
-                                <h5 className="mb-2 text-lg font-semibold text-white text-center">Backend Frameworks</h5>
-                                <div className="flex flex-wrap gap-1 justify-center mb-12">
-                                    {skills.beFrameworks.map(value => (
-                                        <span key={`beFrameworks-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-gray-800 text-gray-300">{value}</span>
-                                    ))}
-                                </div>
-
-                                <h5 className="mb-2 text-lg font-semibold text-white text-center">Databases</h5>
-                                <div className="flex flex-wrap gap-1 justify-center mb-12">
-                                    {skills.db.map(value => (
-                                        <span key={`db-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-gray-800 text-gray-300">{value}</span>
-                                    ))}
-                                </div>
-
-                                <h5 className="mb-2 text-lg font-semibold text-white text-center">Tools</h5>
-                                <div className="flex flex-wrap gap-1 justify-center mb-12">
-                                    {skills.tools.map(value => (
-                                        <span key={`tools-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-gray-800 text-gray-300">{value}</span>
-                                    ))}
-                                </div>
-
-                                <h5 className="mb-2 text-lg font-semibold text-white text-center">Certifications</h5>
-                                <div className="flex flex-col gap-1 justify-center">
-                                    {certifications.map(value => (
-                                        <div key={`certification-${value.title}`} className='mb-4'>
-                                            <h3 className="text-md font-semibold text-white">
-                                                {value.title}
-                                            </h3>
-                                            <time className="mb-1 text-sm font-normal leading-none text-gray-500">
-                                                {value.date}
-                                            </time>
+                                <div className='px-4 md:w-1/2 overflow-y-auto max-h-[calc(100vh-12rem)] py-4'>
+                                    <div className='p-6 mb-4 rounded-lg shadow-sm bg-gray-800 border-gray-700'>
+                                        <h5 className="mb-4 text-lg font-semibold text-white text-center">Markup & Styling</h5>
+                                        <div className="flex flex-wrap gap-1 justify-center">
+                                            {skills.markup.map(value => (
+                                                <span key={`markup-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300">{value}</span>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
+                                    </div>
 
+                                    <div className='p-6 mb-4 rounded-lg shadow-sm bg-gray-800 border-gray-700'>
+                                        <h5 className="mb-4 text-lg font-semibold text-white text-center">Frontend Development</h5>
+                                        <div className="flex flex-wrap gap-1 justify-center">
+                                            {skills.fe.map(value => (
+                                                <span key={`fe-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300">{value}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='p-6 mb-4 rounded-lg shadow-sm bg-gray-800 border-gray-700'>
+                                        <h5 className="mb-4 text-lg font-semibold text-white text-center">Backend Development</h5>
+                                        <div className="flex flex-wrap gap-1 justify-center">
+                                            {skills.be.map(value => (
+                                                <span key={`be-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300">{value}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='p-6 mb-4 rounded-lg shadow-sm bg-gray-800 border-gray-700'>
+                                        <h5 className="mb-4 text-lg font-semibold text-white text-center">Backend Frameworks</h5>
+                                        <div className="flex flex-wrap gap-1 justify-center">
+                                            {skills.beFrameworks.map(value => (
+                                                <span key={`beFrameworks-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300">{value}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='p-6 mb-4 rounded-lg shadow-sm bg-gray-800 border-gray-700'>
+                                        <h5 className="mb-4 text-lg font-semibold text-white text-center">Databases</h5>
+                                        <div className="flex flex-wrap gap-1 justify-center">
+                                            {skills.db.map(value => (
+                                                <span key={`db-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300">{value}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='p-6 mb-4 rounded-lg shadow-sm bg-gray-800 border-gray-700'>
+                                        <h5 className="mb-4 text-lg font-semibold text-white text-center">Tools</h5>
+                                        <div className="flex flex-wrap gap-1 justify-center">
+                                            {skills.tools.map(value => (
+                                                <span key={`tools-${value}`} className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300">{value}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='p-6 rounded-lg shadow-sm bg-gray-800 border-gray-700'>
+                                        <h5 className="mb-4 text-lg font-semibold text-white text-center">Certifications</h5>
+                                        <div className="flex flex-col gap-1 justify-center">
+                                            {certifications.map(value => (
+                                                <div key={`certification-${value.title}`} className='mb-4 border border-gray-700 p-4 rounded-lg shadow-sm'>
+                                                    <h3 className="text-md font-semibold text-white">
+                                                        {value.title}
+                                                    </h3>
+                                                    <time className="mb-2 text-sm font-normal leading-none text-gray-500">
+                                                        {value.date}
+                                                    </time>
+                                                    <div className="w-full rounded-full bg-gray-700">
+                                                        <div className="w-full bg-blue-900 text-xs font-medium text-blue-300 text-center p-0.5 leading-none rounded-full">Completed</div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
