@@ -128,9 +128,8 @@ const JourneyInfo = ({ currentStage }) => {
                     <div className="mt-8 flex flex-col gap-1">
                         <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-gray-700">
                             <p className="text-sm font-normal text-white">
-                                The projects I've worked on
-                                have been great opportunities to challenge myself and level up my skills.
-                                They each reflect my journey and passion for tech.
+                                Each project is a glowing lantern I’ve released into the sky,
+                                carrying sparks of creativity, challenges overcome, and the light of what I’ve built.
                             </p>
                         </div>
 
@@ -140,7 +139,7 @@ const JourneyInfo = ({ currentStage }) => {
                             }}
                         >
                             <button type="button" className="cursor-pointer px-3 py-2 text-xs font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 ">
-                                Explore What I’ve Built
+                                Follow the Lanterns
                             </button>
                         </div>
                     </div>

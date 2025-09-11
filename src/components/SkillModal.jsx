@@ -3,17 +3,21 @@ import { useState } from 'react'
 import SkyKidImg from "../assets/images/wings-of-mastery.png"
 
 const skills = {
-    markup: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Bootstrap"],
+    markup: ["HTML", "CSS", "Tailwind CSS", "Bootstrap"],
     fe: ["JavaScript", "React", "NextJS"],
     be: ["PHP", "NodeJS", "Golang", "Python", "Java", "C#"],
     beFrameworks: ["Laravel (PHP)", "Spring Boot (Java)", "Flask (Python)", "GoFiber (Golang)",
         ".NET (C#)", "NestJS (NodeJS)", "Express.js (NodeJS)", "Hapi.js (NodeJS)"
     ],
-    db: ["SQL", "MySQL", "PostgreSQL", "SQL Server", "MongoDB", "Redis"],
+    db: ["MySQL", "PostgreSQL", "SQL Server", "MongoDB", "Redis"],
     tools: ["Postman", "Git", "Docker", "RabbitMQ"]
 }
 
 const certifications = [
+    {
+        title: "Google IT Automation with Python",
+        date: "May 2024"
+    },
     {
         title: "Java Certified Foundations Associate (Oracle)",
         date: "Oct 2023"

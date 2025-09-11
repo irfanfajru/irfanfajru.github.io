@@ -137,7 +137,7 @@ export default function ProjectsModal({ isOpen, setIsOpen }) {
                             {/* Modal Header */}
                             <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
                                 <h3 className="text-xl font-semibold text-white">
-                                    Projects
+                                    Glowing Lanterns
                                 </h3>
                                 <button
                                     type="button"
