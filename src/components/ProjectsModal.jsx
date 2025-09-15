@@ -7,6 +7,7 @@ import Pbsf from '../assets/images/pbsf.png'
 import Noken from '../assets/images/noken.png'
 import Stela from '../assets/images/stela.png'
 import SmokingDetection from '../assets/images/smoking detection.png'
+import PomodoroAppImg from '../assets/images/pomodoro-app.png'
 
 const projects = [
     {
@@ -30,6 +31,22 @@ const projects = [
             {
                 name: "Go to website",
                 url: "https://idwebtech.com/",
+            }
+        ]
+    },
+    {
+        image: PomodoroAppImg,
+        heading: "Pomodoro App",
+        subHeading: "Focus Timer for Productivity",
+        desc: `A minimalist and efficient Pomodoro timer application designed to boost focus and productivity using the proven Pomodoro Technique. The app allows users to break work into intervals with short breaks, improving time management and reducing burnout.`,
+        links: [
+            {
+                name: "View on GitHub",
+                url: "https://github.com/irfanfajru/pomodoro-app",
+            },
+            {
+                name: "Live Demo",
+                url: "https://pomodoro-app-ten-bice.vercel.app",
             }
         ]
     },
