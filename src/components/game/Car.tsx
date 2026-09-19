@@ -138,7 +138,26 @@ export default function Car({ position, rotation }: CarProps) {
         }
 
         /* camera */
+        const position = chasisBodyRef.current.translation();
 
+        // cameraTarget.current.set(
+        //     position.x,
+        //     position.y,
+        //     position.z
+        // );
+
+        // cameraPosition.current
+        //     .copy(cameraTarget.current)
+        //     .add(CAMERA_OFFSET);
+
+        // camera.position.lerp(
+        //     cameraPosition.current,
+        //     0.05
+        // );
+
+        // camera.lookAt(
+        //     cameraTarget.current
+        // );
         // camera position
         // const cameraPosition = _cameraPosition;
 
