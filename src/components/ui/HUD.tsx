@@ -16,11 +16,11 @@ export function HUD() {
             {/* Top left */}
             <div className="pointer-events-none absolute left-6 top-6">
                 <h1 className="text-2xl font-bold">
-                    IRFAN FAJRU
+                    Muhammad Irfan Fajru Ramadhan
                 </h1>
 
                 <p className="text-sm opacity-70">
-                    Software Engineer
+                    Software Developer
                 </p>
             </div>
 

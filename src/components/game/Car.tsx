@@ -1,7 +1,7 @@
 "use client";
 
 import { RigidBody } from "@react-three/rapier";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 
@@ -10,11 +10,50 @@ import { useGameStore } from "@/store/gameStore";
 
 export function Car() {
     const bodyRef = useRef<any>(null);
+    const { camera } = useThree();
 
     const controls = useCarControls();
 
     const setSpeed = useGameStore(
         (state) => state.setSpeed
+    );
+
+    // ----------------------------------------
+    // Car settings
+    // ----------------------------------------
+
+    const MAX_SPEED = 12;
+    const REVERSE_SPEED = 6;
+    const STEERING_SPEED = 2.5;
+
+    // ----------------------------------------
+    // Persistent rotation
+    // ----------------------------------------
+
+    const yaw = useRef(0);
+
+    // ----------------------------------------
+    // Reusable vectors
+    // ----------------------------------------
+
+    const forward = useRef(
+        new THREE.Vector3()
+    );
+
+    const cameraTarget = useRef(
+        new THREE.Vector3()
+    );
+
+    const cameraPosition = useRef(
+        new THREE.Vector3()
+    );
+
+    const UP = new THREE.Vector3(0, 1, 0);
+
+    const CAMERA_OFFSET = new THREE.Vector3(
+        12,
+        18,
+        12
     );
 
     useFrame((_, delta) => {
@@ -24,38 +63,118 @@ export function Car() {
 
         const position = body.translation();
 
-        const speed = controls.forward
-            ? 12
-            : controls.backward
-                ? -6
-                : 0;
+        // ========================================
+        // SPEED
+        // ========================================
+
+        let speed = 0;
+
+        if (controls.forward) {
+            speed = MAX_SPEED;
+        } else if (controls.backward) {
+            speed = -REVERSE_SPEED;
+        }
+
+        const isMoving = speed !== 0;
+
+        // ========================================
+        // STEERING
+        // ONLY WHEN MOVING
+        // ========================================
+
+        if (isMoving) {
+            if (controls.left) {
+                yaw.current +=
+                    STEERING_SPEED * delta;
+            }
+
+            if (controls.right) {
+                yaw.current -=
+                    STEERING_SPEED * delta;
+            }
+        }
+
+        // ========================================
+        // FORWARD DIRECTION
+        // ========================================
+
+        forward.current.set(
+            0,
+            0,
+            -1
+        );
+
+        forward.current.applyAxisAngle(
+            UP,
+            yaw.current
+        );
+
+        // ========================================
+        // MOVEMENT
+        // ========================================
+
+        const nextPosition = {
+            x:
+                position.x +
+                forward.current.x *
+                speed *
+                delta,
+
+            y: position.y,
+
+            z:
+                position.z +
+                forward.current.z *
+                speed *
+                delta,
+        };
+
+        body.setNextKinematicTranslation(
+            nextPosition
+        );
+
+        // ========================================
+        // ROTATION
+        // ========================================
+
+        const rotation =
+            new THREE.Quaternion().setFromAxisAngle(
+                UP,
+                yaw.current
+            );
+
+        body.setNextKinematicRotation(
+            rotation
+        );
+
+        // ========================================
+        // SPEED
+        // ========================================
 
         setSpeed(Math.abs(speed));
 
-        const nextZ =
-            position.z + speed * delta;
+        // ========================================
+        // CAMERA
+        // ========================================
 
-        body.setNextKinematicTranslation({
-            x: position.x,
-            y: position.y,
-            z: nextZ,
-        });
+        cameraTarget.current.set(
+            nextPosition.x,
+            nextPosition.y,
+            nextPosition.z
+        );
 
-        if (controls.left) {
-            body.setNextKinematicRotation(
-                new THREE.Quaternion().setFromEuler(
-                    new THREE.Euler(0, 0.3, 0)
-                )
-            );
-        }
+        cameraPosition.current
+            .copy(cameraTarget.current)
+            .add(CAMERA_OFFSET);
 
-        if (controls.right) {
-            body.setNextKinematicRotation(
-                new THREE.Quaternion().setFromEuler(
-                    new THREE.Euler(0, -0.3, 0)
-                )
-            );
-        }
+        camera.position.lerp(
+            cameraPosition.current,
+            0.08
+        );
+
+        camera.lookAt(
+            cameraTarget.current
+        );
     });
 
     return (
@@ -66,9 +185,13 @@ export function Car() {
             colliders="cuboid"
         >
             <mesh castShadow>
-                <boxGeometry args={[2, 1, 4]} />
+                <boxGeometry
+                    args={[2, 1, 4]}
+                />
 
-                <meshStandardMaterial color="#1e293b" />
+                <meshStandardMaterial
+                    color="#1e293b"
+                />
             </mesh>
         </RigidBody>
     );

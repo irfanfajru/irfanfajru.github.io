@@ -12,9 +12,10 @@ export default function Game() {
         <div className="relative h-screen w-full">
             <Canvas
                 shadows
+                orthographic
                 camera={{
-                    position: [0, 5, 10],
-                    fov: 60,
+                    position: [12, 18, 12],
+                    zoom: 30,
                 }}
             >
                 <Suspense fallback={null}>
