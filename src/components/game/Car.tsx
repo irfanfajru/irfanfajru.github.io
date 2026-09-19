@@ -1,3 +1,5 @@
+"use client";
+
 import type { Collider } from '@dimforge/rapier3d-compat';
 import { KeyboardControls, OrbitControls, useGLTF, useKeyboardControls } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
@@ -44,6 +46,12 @@ type CarProps = {
     rotation: THREE.Vector3Tuple;
 };
 
+const CAMERA_OFFSET = new THREE.Vector3(
+    12,
+    18,
+    12
+);
+
 export default function Car({ position, rotation }: CarProps) {
     const { world, rapier } = useRapier();
     const threeControls = useThree((s) => s.controls);
@@ -65,6 +73,14 @@ export default function Car({ position, rotation }: CarProps) {
     const [smoothedCameraTarget] = useState(new THREE.Vector3());
 
     const ground = useRef<Collider | null>(null);
+
+    const cameraTarget = useRef(
+        new THREE.Vector3()
+    );
+
+    const cameraPosition = useRef(
+        new THREE.Vector3()
+    );
 
     useFrame((state, delta) => {
         if (!chasisMeshRef.current || !vehicleController.current || !!threeControls) return;
@@ -138,28 +154,30 @@ export default function Car({ position, rotation }: CarProps) {
         }
 
         /* camera */
-        const position = chasisBodyRef.current.translation();
+        const position = vehicleController.current?.chassis().translation();
 
-        // cameraTarget.current.set(
-        //     position.x,
-        //     position.y,
-        //     position.z
-        // );
+        cameraTarget.current.set(
+            position.x,
+            position.y,
+            position.z
+        );
 
-        // cameraPosition.current
-        //     .copy(cameraTarget.current)
-        //     .add(CAMERA_OFFSET);
+        cameraPosition.current
+            .copy(cameraTarget.current)
+            .add(CAMERA_OFFSET);
 
-        // camera.position.lerp(
-        //     cameraPosition.current,
-        //     0.05
-        // );
+        state.camera.position.lerp(
+            cameraPosition.current,
+            0.05
+        );
 
-        // camera.lookAt(
-        //     cameraTarget.current
-        // );
+        state.camera.lookAt(
+            cameraTarget.current
+        );
+
         // camera position
         // const cameraPosition = _cameraPosition;
+        // cameraPosition.copy(CAMERA_OFFSET);
 
         // if (ground.current) {
         //     // camera behind chassis

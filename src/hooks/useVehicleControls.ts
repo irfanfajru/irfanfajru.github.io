@@ -1,3 +1,5 @@
+"use client";
+
 import type { DynamicRayCastVehicleController } from '@dimforge/rapier3d-compat';
 import { type RapierRigidBody, useAfterPhysicsStep, useRapier } from '@react-three/rapier';
 import { type RefObject, useEffect, useRef } from 'react';
