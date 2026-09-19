@@ -6,28 +6,31 @@ import { Physics } from "@react-three/rapier";
 
 import { World } from "./World";
 import { HUD } from "../ui/HUD";
+import { KeyboardControls } from "@react-three/drei";
+import { keyboardMap } from "@/data/keyboardMap";
 
 export default function Game() {
     return (
         <div className="relative h-screen w-full">
-            <Canvas
-                shadows
-                orthographic
-                camera={{
-                    position: [12, 18, 12],
-                    zoom: 30,
-                }}
-            >
-                {/* Visualizes X, Y, and Z axes. Arguments: [length] */}
-                <axesHelper args={[10]} />
+            <KeyboardControls map={keyboardMap}>
+                <Canvas
+                    shadows
+                    orthographic
+                    camera={{
+                        position: [12, 18, 12],
+                        zoom: 30,
+                    }}
+                >
+                    {/* Visualizes X, Y, and Z axes. Arguments: [length] */}
+                    <axesHelper args={[10]} />
 
-                <Suspense fallback={null}>
-                    <Physics debug gravity={[0, -9.81, 0]}>
-                        <World />
-                    </Physics>
-                </Suspense>
-            </Canvas>
-
+                    <Suspense fallback={null}>
+                        <Physics debug gravity={[0, -9.81, 0]}>
+                            <World />
+                        </Physics>
+                    </Suspense>
+                </Canvas>
+            </KeyboardControls>
             <HUD />
         </div>
     );

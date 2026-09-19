@@ -2,7 +2,7 @@
 
 import { Environment } from "@react-three/drei";
 
-import { Car } from "./Car";
+import Car from "./Car";
 import { Road } from "./Road";
 import { Campsite } from "./Campsite";
 import { Signboard } from "./Signboard";
@@ -77,7 +77,7 @@ export function World() {
             />
 
             {/* Player */}
-            <Car />
+            <Car position={[0, 2, 0]} rotation={[0, 0, 0]} />
         </>
     );
 }
