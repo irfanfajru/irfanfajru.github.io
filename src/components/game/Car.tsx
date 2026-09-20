@@ -174,39 +174,6 @@ export default function Car({ position, rotation }: CarProps) {
         state.camera.lookAt(
             cameraTarget.current
         );
-
-        // camera position
-        // const cameraPosition = _cameraPosition;
-        // cameraPosition.copy(CAMERA_OFFSET);
-
-        // if (ground.current) {
-        //     // camera behind chassis
-        //     cameraPosition.copy(cameraOffset);
-        //     const bodyWorldMatrix = chasisMeshRef.current.matrixWorld;
-        //     cameraPosition.applyMatrix4(bodyWorldMatrix);
-        // } else {
-        //     // camera behind velocity
-        //     const velocity = chassisRigidBody.linvel();
-        //     cameraPosition.copy(velocity);
-        //     cameraPosition.normalize();
-        //     cameraPosition.multiplyScalar(-10);
-        //     cameraPosition.add(chassisRigidBody.translation());
-        // }
-
-        // cameraPosition.y = Math.max(cameraPosition.y, (vehicleController.current?.chassis().translation().y ?? 0) + 1);
-
-        // smoothedCameraPosition.lerp(cameraPosition, t);
-        // state.camera.position.copy(smoothedCameraPosition);
-
-        // // camera target
-        // const bodyPosition = chasisMeshRef.current.getWorldPosition(_bodyPosition);
-        // const cameraTarget = _cameraTarget;
-
-        // cameraTarget.copy(bodyPosition);
-        // cameraTarget.add(cameraTargetOffset);
-        // smoothedCameraTarget.lerp(cameraTarget, t);
-
-        // state.camera.lookAt(smoothedCameraTarget);
     });
 
     return (

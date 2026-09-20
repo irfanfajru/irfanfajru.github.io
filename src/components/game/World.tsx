@@ -26,7 +26,7 @@ export function World() {
             <Road />
 
             {/* Portfolio locations */}
-            <Campsite
+            {/* <Campsite
                 position={[0, 0, -20]}
                 title="ABOUT"
             />
@@ -74,7 +74,7 @@ export function World() {
             <Signboard
                 position={[5, 2, -260]}
                 text="CONTACT"
-            />
+            /> */}
 
             {/* Player */}
             <Car position={[0, 2, 0]} rotation={[0, 0, 0]} />

@@ -24,17 +24,6 @@ export function HUD() {
                 </p>
             </div>
 
-            {/* Speed */}
-            <div className="absolute bottom-6 right-6 rounded-xl bg-black/50 px-5 py-3 text-white backdrop-blur">
-                <span className="text-xs opacity-60">
-                    SPEED
-                </span>
-
-                <div className="text-2xl font-bold">
-                    {Math.round(speed * 8)} km/h
-                </div>
-            </div>
-
             {/* Current section */}
             {activeSection && (
                 <div className="absolute left-1/2 top-8 -translate-x-1/2 rounded-full bg-white/90 px-6 py-3 shadow-lg">
