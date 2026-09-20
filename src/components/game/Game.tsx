@@ -18,14 +18,14 @@ export default function Game() {
                     orthographic
                     camera={{
                         position: [12, 18, 12],
-                        zoom: 30,
+                        zoom: 40,
                     }}
                 >
                     {/* Visualizes X, Y, and Z axes. Arguments: [length] */}
                     <axesHelper args={[10]} />
 
                     <Suspense fallback={null}>
-                        <Physics debug gravity={[0, -9.81, 0]}>
+                        <Physics debug gravity={[0, -9.81, 0]} timeStep="vary">
                             <World />
                         </Physics>
                     </Suspense>

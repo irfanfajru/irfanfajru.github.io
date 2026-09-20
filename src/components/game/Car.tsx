@@ -11,7 +11,7 @@ import type { KeyControls } from '@/data/keyboardMap';
 
 const spawn = {
     position: [0, 2, 0] as THREE.Vector3Tuple,
-    rotation: [0, Math.PI / 2, 0] as THREE.Vector3Tuple,
+    rotation: [0, 0, 0] as THREE.Vector3Tuple,
 };
 
 const wheelInfo: Omit<WheelInfo, 'position'> = {
