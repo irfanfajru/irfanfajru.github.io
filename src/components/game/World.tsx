@@ -14,7 +14,7 @@ export function World() {
 
             <directionalLight
                 position={[10, 20, 10]}
-                intensity={3}
+                intensity={1}
                 castShadow
             />
 

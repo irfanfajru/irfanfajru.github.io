@@ -18,7 +18,7 @@ export default function Game() {
                     orthographic
                     camera={{
                         position: [12, 18, 12],
-                        zoom: 40,
+                        zoom: 30,
                     }}
                 >
                     {/* Visualizes X, Y, and Z axes. Arguments: [length] */}
@@ -27,7 +27,7 @@ export default function Game() {
                     <OrbitControls enableDamping />
 
                     <Suspense fallback={null}>
-                        <Physics debug={true} gravity={[0, -9.81, 0]} timeStep="vary">
+                        <Physics debug={false} gravity={[0, -9.81, 0]} timeStep="vary">
                             <World />
                         </Physics>
                     </Suspense>

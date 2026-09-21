@@ -1,6 +1,6 @@
 "use client";
 
-import type { Collider } from '@dimforge/rapier3d-compat';
+import type { Collider, Vector } from '@dimforge/rapier3d-compat';
 import { KeyboardControls, OrbitControls, useGLTF, useKeyboardControls } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { CuboidCollider, Physics, type RapierRigidBody, RigidBody, useRapier } from '@react-three/rapier';
@@ -21,7 +21,7 @@ const wheelInfo: Omit<WheelInfo, 'position'> = {
     suspensionStiffness: 24,
     maxSuspensionTravel: 1,
     sideFrictionStiffness: 3,
-    frictionSlip: 1.5,
+    frictionSlip: 2,
     radius: 0.35,
 };
 
@@ -108,8 +108,8 @@ export default function Car({ position, rotation }: CarProps) {
     const { accelerateForce, reverserForce, brakeForce, steerAngle } = {
         accelerateForce: { value: 20, min: 0, max: 10 },
         reverserForce: { value: 15, min: 0, max: 10 },
-        brakeForce: { value: 15, min: 0, max: 0.5, step: 0.01 },
-        steerAngle: { value: 50 * (Math.PI / 180), min: 0, max: Math.PI / 12 },
+        brakeForce: { value: 20, min: 0, max: 0.5, step: 0.01 },
+        steerAngle: { value: 40 * (Math.PI / 180), min: 0, max: Math.PI / 12 },
     };
 
     const ground = useRef<Collider | null>(null);
