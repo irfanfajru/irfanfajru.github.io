@@ -3,9 +3,8 @@
 import { Environment } from "@react-three/drei";
 
 import Car from "./Car";
-import { Road } from "./Road";
-import { Campsite } from "./Campsite";
-import { Signboard } from "./Signboard";
+import { Ground } from "./Ground";
+import { Track } from "./Track";
 
 export function World() {
     return (
@@ -23,58 +22,9 @@ export function World() {
             <Environment preset="forest" />
 
             {/* Ground / road */}
-            <Road />
+            <Ground />
 
-            {/* Portfolio locations */}
-            {/* <Campsite
-                position={[0, 0, -20]}
-                title="ABOUT"
-            />
-
-            <Campsite
-                position={[0, 0, -80]}
-                title="EXPERIENCE"
-            />
-
-            <Campsite
-                position={[0, 0, -140]}
-                title="SKILLS"
-            />
-
-            <Campsite
-                position={[0, 0, -200]}
-                title="PROJECTS"
-            />
-
-            <Campsite
-                position={[0, 0, -260]}
-                title="CONTACT"
-            />
-
-            <Signboard
-                position={[5, 2, -20]}
-                text="ABOUT ME"
-            />
-
-            <Signboard
-                position={[5, 2, -80]}
-                text="EXPERIENCE"
-            />
-
-            <Signboard
-                position={[5, 2, -140]}
-                text="SKILLS"
-            />
-
-            <Signboard
-                position={[5, 2, -200]}
-                text="PROJECTS"
-            />
-
-            <Signboard
-                position={[5, 2, -260]}
-                text="CONTACT"
-            /> */}
+            <Track />
 
             {/* Player */}
             <Car position={[0, 2, 0]} rotation={[0, 0, 0]} />

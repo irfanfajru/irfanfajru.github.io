@@ -5,20 +5,22 @@ import {
     RigidBody,
 } from "@react-three/rapier";
 
-export function Road() {
+export function Ground() {
     return (
         <group>
             <RigidBody type="fixed" colliders="cuboid">
                 <mesh
-                    position={[0, -1, 0]}
+                    position={[0, -1, -16]}
                     receiveShadow
                 >
                     <boxGeometry
-                        args={[80, 1, 320]}
+                        args={[150, 1, 150]}
                     />
 
                     <meshStandardMaterial
                         color="#78906b"
+                        transparent
+                        opacity={0}
                     />
                 </mesh>
             </RigidBody>
