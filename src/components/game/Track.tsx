@@ -152,7 +152,7 @@ export function Track() {
                 scale={2.147}
             />
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -162,7 +162,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -172,7 +172,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -182,7 +182,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -192,7 +192,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -202,7 +202,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -212,7 +212,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -222,7 +222,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -232,7 +232,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -242,7 +242,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -252,7 +252,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -262,7 +262,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -272,7 +272,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -282,7 +282,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -292,7 +292,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -302,7 +302,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -312,7 +312,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -322,7 +322,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -332,7 +332,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">\
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -342,7 +342,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -352,7 +352,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -362,7 +362,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -372,7 +372,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -382,7 +382,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -392,7 +392,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -402,7 +402,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -412,7 +412,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -422,7 +422,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -432,7 +432,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -442,7 +442,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -452,7 +452,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -462,7 +462,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -472,7 +472,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -482,7 +482,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -492,7 +492,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -502,7 +502,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -512,7 +512,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -522,7 +522,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -532,7 +532,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -542,7 +542,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -552,7 +552,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -562,7 +562,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -572,7 +572,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -582,7 +582,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -592,7 +592,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -602,7 +602,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -612,7 +612,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -622,7 +622,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -632,7 +632,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -642,7 +642,7 @@ export function Track() {
                 />
             </RigidBody>
 
-            <RigidBody type="dynamic" colliders="hull">
+            <RigidBody type="dynamic" colliders="hull" position={[0, 1, 0]}>
                 <mesh
                     castShadow
                     receiveShadow

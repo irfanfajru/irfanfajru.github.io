@@ -14,7 +14,7 @@ export function HUD() {
     return (
         <>
             {/* Top left */}
-            <div className="pointer-events-none absolute left-6 top-6">
+            <div className="pointer-events-none absolute left-6 top-6 text-black">
                 <h1 className="text-2xl font-bold">
                     Muhammad Irfan Fajru Ramadhan
                 </h1>
@@ -35,9 +35,11 @@ export function HUD() {
 
             {/* Controls */}
             <div className="absolute bottom-6 left-6 rounded-xl bg-black/50 px-5 py-3 text-sm text-white backdrop-blur">
-                <div>W / ↑ — Drive</div>
-                <div>A / ← — Turn left</div>
-                <div>D / → — Turn right</div>
+                <div><kbd>W</kbd> <kbd>↑</kbd> Drive</div>
+                <div><kbd>S</kbd> <kbd>↓</kbd> Reverse</div>
+                <div><kbd>A</kbd> <kbd>←</kbd> Left</div>
+                <div><kbd>D</kbd> <kbd>→</kbd> Right</div>
+                <div><kbd>Space</kbd> Handbrake</div>
             </div>
         </>
     );
