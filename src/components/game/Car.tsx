@@ -8,6 +8,7 @@ import { type RefObject, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { type WheelInfo, useVehicleControls } from '@/hooks/useVehicleControls';
 import type { KeyControls } from '@/data/keyboardMap';
+import { GLTF } from 'three-stdlib'
 
 const spawn = {
     position: [0, 2, 0] as THREE.Vector3Tuple,
@@ -21,16 +22,16 @@ const wheelInfo: Omit<WheelInfo, 'position'> = {
     maxSuspensionTravel: 1,
     sideFrictionStiffness: 3,
     frictionSlip: 1.5,
-    radius: 0.15,
+    radius: 0.35,
 };
 
 const wheels: WheelInfo[] = [
     // front
-    { position: new THREE.Vector3(-0.65, -0.15, -0.45), ...wheelInfo },
-    { position: new THREE.Vector3(-0.65, -0.15, 0.45), ...wheelInfo },
+    { position: new THREE.Vector3(-1.534, 0.332, 0.858), ...wheelInfo },
+    { position: new THREE.Vector3(-1.534, 0.332, -0.858), ...wheelInfo },
     // rear
-    { position: new THREE.Vector3(0.65, -0.15, -0.45), ...wheelInfo },
-    { position: new THREE.Vector3(0.65, -0.15, 0.45), ...wheelInfo },
+    { position: new THREE.Vector3(1.25, 0.353, 0.857), ...wheelInfo },
+    { position: new THREE.Vector3(1.25, 0.353, -0.857), ...wheelInfo },
 ];
 
 const _airControlAngVel = new THREE.Vector3();
@@ -46,7 +47,54 @@ const CAMERA_OFFSET = new THREE.Vector3(
     12
 );
 
+type GLTFResult = GLTF & {
+    nodes: {
+        fl_rim: THREE.Mesh
+        fl_rim_black: THREE.Mesh
+        fl_wheel: THREE.Mesh
+        fr_rim: THREE.Mesh
+        fr_rim_black: THREE.Mesh
+        fr_wheel: THREE.Mesh
+        rl_rim: THREE.Mesh
+        rl_rim_black: THREE.Mesh
+        rl_wheel: THREE.Mesh
+        rr_rim: THREE.Mesh
+        rr_rim_black: THREE.Mesh
+        rr_wheel: THREE.Mesh
+        Plane001_Material014_0: THREE.Mesh
+        Plane_black_0: THREE.Mesh
+        Plane_car002_0: THREE.Mesh
+        Plane_car_0: THREE.Mesh
+        Plane_glas_fara_0: THREE.Mesh
+        Plane_glass_0: THREE.Mesh
+        Plane_Material003_0: THREE.Mesh
+        Plane_Material011_0: THREE.Mesh
+        Plane_Material012_0: THREE.Mesh
+        Plane_Material013_0: THREE.Mesh
+        Plane_Material_0: THREE.Mesh
+        Plane_metall_0: THREE.Mesh
+    }
+    materials: {
+        ['Material.002']: THREE.MeshStandardMaterial
+        black: THREE.MeshPhysicalMaterial
+        ['Material.004']: THREE.MeshPhysicalMaterial
+        ['Material.014']: THREE.MeshStandardMaterial
+        ['car.002']: THREE.MeshStandardMaterial
+        material: THREE.MeshStandardMaterial
+        glas_fara: THREE.MeshStandardMaterial
+        glass: THREE.MeshStandardMaterial
+        ['Material.003']: THREE.MeshStandardMaterial
+        ['Material.011']: THREE.MeshStandardMaterial
+        ['Material.012']: THREE.MeshStandardMaterial
+        ['Material.013']: THREE.MeshStandardMaterial
+        ['Material.001']: THREE.MeshPhysicalMaterial
+        metall: THREE.MeshStandardMaterial
+    }
+}
+
 export default function Car({ position, rotation }: CarProps) {
+    const { nodes, materials } = useGLTF('/models/car.glb') as unknown as GLTFResult;
+
     const { world, rapier } = useRapier();
     const threeControls = useThree((s) => s.controls);
     const [, getKeyboardControls] = useKeyboardControls<keyof KeyControls>();
@@ -57,10 +105,11 @@ export default function Car({ position, rotation }: CarProps) {
 
     const { vehicleController } = useVehicleControls(chasisBodyRef, wheelsRef as RefObject<THREE.Object3D[]>, wheels);
 
-    const { accelerateForce, brakeForce, steerAngle } = {
-        accelerateForce: { value: 2, min: 0, max: 10 },
-        brakeForce: { value: 0.05, min: 0, max: 0.5, step: 0.01 },
-        steerAngle: { value: 40 * (Math.PI / 180), min: 0, max: Math.PI / 12 },
+    const { accelerateForce, reverserForce, brakeForce, steerAngle } = {
+        accelerateForce: { value: 20, min: 0, max: 10 },
+        reverserForce: { value: 15, min: 0, max: 10 },
+        brakeForce: { value: 15, min: 0, max: 0.5, step: 0.01 },
+        steerAngle: { value: 50 * (Math.PI / 180), min: 0, max: Math.PI / 12 },
     };
 
     const ground = useRef<Collider | null>(null);
@@ -104,7 +153,7 @@ export default function Car({ position, rotation }: CarProps) {
         }
 
         // engine force and back force
-        const engineForce = Number(controls.forward) * accelerateForce.value - Number(controls.back);
+        const engineForce = Number(controls.forward) * accelerateForce.value - Number(controls.back) * reverserForce.value;
         controller.setWheelEngineForce(2, engineForce);
         controller.setWheelEngineForce(3, engineForce);
 
@@ -174,38 +223,241 @@ export default function Car({ position, rotation }: CarProps) {
                 rotation={rotation}
                 canSleep={false}
                 ref={chasisBodyRef}
-                colliders={false}
+                colliders={"trimesh"}
                 type="dynamic"
             >
-                <CuboidCollider args={[0.8, 0.2, 0.4]} />
 
-                {/* chassis */}
-                <mesh ref={chasisMeshRef}>
-                    <boxGeometry args={[1.6, 0.4, 0.8]} />
-                </mesh>
+                <group ref={(ref) => {
+                    wheelsRef.current[0] = ref;
+                }}
+                    position={[-1.534, 0.332, 0.858]} >
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.fl_rim.geometry}
+                        material={materials['Material.002']}
+                        position={[0, 0.002, 0.049]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={0.336}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.fl_rim_black.geometry}
+                        material={materials.black}
+                        position={[0, 0.002, -0.045]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={0.336}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.fl_wheel.geometry}
+                        material={materials['Material.004']}
+                        position={[0, -0.004, -0.004]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={0.336}
+                    />
+                </group>
+                <group ref={(ref) => {
+                    wheelsRef.current[1] = ref;
+                }} position={[-1.534, 0.332, -0.858]}>
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.fr_rim.geometry}
+                        material={materials['Material.002']}
+                        position={[0, 0.002, -0.049]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={0.336}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.fr_rim_black.geometry}
+                        material={materials.black}
+                        position={[0, 0.002, 0.045]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={0.336}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.fr_wheel.geometry}
+                        material={materials['Material.004']}
+                        position={[0, -0.004, 0.004]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={0.336}
+                    />
+                </group>
+                <group
+                    ref={(ref) => {
+                        wheelsRef.current[2] = ref;
+                    }}
+                    position={[1.25, 0.353, 0.857]}>
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.rl_rim.geometry}
+                        material={materials['Material.002']}
+                        position={[0, 0.003, 0.07]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={[0.361, 0.361, 0.337]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.rl_rim_black.geometry}
+                        material={materials.black}
+                        position={[0, 0.003, -0.03]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={[0.361, 0.361, 0.337]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.rl_wheel.geometry}
+                        material={materials['Material.004']}
+                        position={[0, -0.006, -0.04]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={[0.361, 0.361, 0.337]}
+                    />
+                </group>
+                <group
+                    ref={(ref) => {
+                        wheelsRef.current[3] = ref;
+                    }}
+                    position={[1.25, 0.353, -0.857]}>
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.rr_rim.geometry}
+                        material={materials['Material.002']}
+                        position={[0, 0.003, -0.07]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={[0.361, 0.361, 0.337]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.rr_rim_black.geometry}
+                        material={materials.black}
+                        position={[0, 0.003, 0.03]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={[0.361, 0.361, 0.337]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.rr_wheel.geometry}
+                        material={materials['Material.004']}
+                        position={[0, -0.006, 0.04]}
+                        rotation={[-Math.PI, 0, 0]}
+                        scale={[0.361, 0.361, 0.337]}
+                    />
+                </group>
 
-                {/* wheels */}
-                {wheels.map((wheel, index) => (
-                    <group
-                        key={String(index)}
-                        ref={(ref) => {
-                            wheelsRef.current[index] = ref;
-                        }}
-                        position={wheel.position}
-                    >
-                        <group rotation-x={-Math.PI / 2}>
-                            <mesh>
-                                <cylinderGeometry args={[0.15, 0.15, 0.25, 16]} />
-                                <meshStandardMaterial color="#222" />
-                            </mesh>
-                            <mesh scale={1.01}>
-                                <cylinderGeometry args={[0.15, 0.15, 0.25, 6]} />
-                                <meshStandardMaterial color="#fff" wireframe />
-                            </mesh>
-                        </group>
-                    </group>
-                ))}
+                <group ref={chasisMeshRef} position={[-0.469, 0.649, 0]}>
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane001_Material014_0.geometry}
+                        material={materials['Material.014']}
+                        position={[2.565, 0.065, 0]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_black_0.geometry}
+                        material={materials.black}
+                        position={[0.65, -0.259, -0.001]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_car002_0.geometry}
+                        material={materials['car.002']}
+                        position={[1.276, 0.564, 0]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_car_0.geometry}
+                        material={materials.material}
+                        position={[-1.763, -0.032, 0]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_glas_fara_0.geometry}
+                        material={materials.glas_fara}
+                        position={[2.573, 0.065, 0]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_glass_0.geometry}
+                        material={materials.glass}
+                        position={[0.656, 0.348, -0.001]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_Material003_0.geometry}
+                        material={materials['Material.003']}
+                        position={[-1.606, -0.107, 0]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_Material011_0.geometry}
+                        material={materials['Material.011']}
+                        position={[-1.548, -0.11, 0.001]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_Material012_0.geometry}
+                        material={materials['Material.012']}
+                        position={[-1.43, -0.102, 0.001]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_Material013_0.geometry}
+                        material={materials['Material.013']}
+                        position={[-1.585, -0.112, 0.001]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_Material_0.geometry}
+                        material={materials['Material.001']}
+                        position={[0.463, -0.101, 0.001]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane_metall_0.geometry}
+                        material={materials.metall}
+                        position={[-0.25, -0.219, 0]}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                    />
+                </group>
             </RigidBody>
         </>
     );
 };
+
+useGLTF.preload('/models/car.glb');

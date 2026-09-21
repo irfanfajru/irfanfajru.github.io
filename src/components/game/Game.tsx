@@ -6,7 +6,7 @@ import { Physics } from "@react-three/rapier";
 
 import { World } from "./World";
 import { HUD } from "../ui/HUD";
-import { KeyboardControls } from "@react-three/drei";
+import { KeyboardControls, OrbitControls } from "@react-three/drei";
 import { keyboardMap } from "@/data/keyboardMap";
 
 export default function Game() {
@@ -24,8 +24,10 @@ export default function Game() {
                     {/* Visualizes X, Y, and Z axes. Arguments: [length] */}
                     <axesHelper args={[10]} />
 
+                    <OrbitControls enableDamping />
+
                     <Suspense fallback={null}>
-                        <Physics debug gravity={[0, -9.81, 0]} timeStep="vary">
+                        <Physics debug={true} gravity={[0, -9.81, 0]} timeStep="vary">
                             <World />
                         </Physics>
                     </Suspense>

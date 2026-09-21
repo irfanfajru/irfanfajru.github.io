@@ -8,41 +8,19 @@ import {
 export function Road() {
     return (
         <group>
-            {/* ================================
-                Ground
-            ================================= */}
+            <RigidBody type="fixed" colliders="cuboid">
+                <mesh
+                    position={[0, -1, 0]}
+                    receiveShadow
+                >
+                    <boxGeometry
+                        args={[80, 1, 320]}
+                    />
 
-            <mesh
-                position={[0, -1, -150]}
-                receiveShadow
-            >
-                <boxGeometry
-                    args={[80, 1, 320]}
-                />
-
-                <meshStandardMaterial
-                    color="#78906b"
-                />
-            </mesh>
-
-            {/* ================================
-                Physics
-            ================================= */}
-
-            <RigidBody type="fixed">
-                {/* Ground collider */}
-                <CuboidCollider
-                    args={[
-                        40,
-                        0.5,
-                        320 / 2,
-                    ]}
-                    position={[
-                        0,
-                        -1,
-                        -150,
-                    ]}
-                />
+                    <meshStandardMaterial
+                        color="#78906b"
+                    />
+                </mesh>
             </RigidBody>
         </group>
     );
