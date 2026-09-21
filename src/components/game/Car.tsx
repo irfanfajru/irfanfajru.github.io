@@ -33,13 +33,7 @@ const wheels: WheelInfo[] = [
     { position: new THREE.Vector3(0.65, -0.15, 0.45), ...wheelInfo },
 ];
 
-const cameraOffset = new THREE.Vector3(7, 3, 0);
-const cameraTargetOffset = new THREE.Vector3(0, 1.5, 0);
-
-const _bodyPosition = new THREE.Vector3();
 const _airControlAngVel = new THREE.Vector3();
-const _cameraPosition = new THREE.Vector3();
-const _cameraTarget = new THREE.Vector3();
 
 type CarProps = {
     position: THREE.Vector3Tuple;
@@ -68,9 +62,6 @@ export default function Car({ position, rotation }: CarProps) {
         brakeForce: { value: 0.05, min: 0, max: 0.5, step: 0.01 },
         steerAngle: { value: 40 * (Math.PI / 180), min: 0, max: Math.PI / 12 },
     };
-
-    const [smoothedCameraPosition] = useState(new THREE.Vector3(0, 100, -300));
-    const [smoothedCameraTarget] = useState(new THREE.Vector3());
 
     const ground = useRef<Collider | null>(null);
 
