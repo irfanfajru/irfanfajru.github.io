@@ -36,11 +36,6 @@ const wheels: WheelInfo[] = [
 
 const _airControlAngVel = new THREE.Vector3();
 
-type CarProps = {
-    position: THREE.Vector3Tuple;
-    rotation: THREE.Vector3Tuple;
-};
-
 const CAMERA_OFFSET = new THREE.Vector3(
     12,
     18,
@@ -92,7 +87,7 @@ type GLTFResult = GLTF & {
     }
 }
 
-export default function Car({ position, rotation }: CarProps) {
+export default function Car() {
     const { nodes, materials } = useGLTF('/models/car.glb') as unknown as GLTFResult;
 
     const { world, rapier } = useRapier();
@@ -208,7 +203,7 @@ export default function Car({ position, rotation }: CarProps) {
 
         state.camera.position.lerp(
             cameraPosition.current,
-            0.05
+            1
         );
 
         state.camera.lookAt(
@@ -219,8 +214,8 @@ export default function Car({ position, rotation }: CarProps) {
     return (
         <>
             <RigidBody
-                position={position}
-                rotation={rotation}
+                position={spawn.position}
+                rotation={spawn.rotation}
                 canSleep={false}
                 ref={chasisBodyRef}
                 colliders={"trimesh"}

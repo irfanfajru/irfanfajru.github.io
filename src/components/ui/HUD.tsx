@@ -40,6 +40,7 @@ export function HUD() {
                 <div><kbd>A</kbd> <kbd>←</kbd> Left</div>
                 <div><kbd>D</kbd> <kbd>→</kbd> Right</div>
                 <div><kbd>Space</kbd> Handbrake</div>
+                <div><kbd>R</kbd> Respawn</div>
             </div>
         </>
     );

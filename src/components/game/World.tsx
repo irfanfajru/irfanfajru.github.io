@@ -27,7 +27,7 @@ export function World() {
             <Track />
 
             {/* Player */}
-            <Car position={[0, 2, 0]} rotation={[0, 0, 0]} />
+            <Car />
         </>
     );
 }
