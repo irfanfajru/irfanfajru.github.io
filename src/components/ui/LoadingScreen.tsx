@@ -46,15 +46,15 @@ export default function LoadingScreen() {
                         > {Math.round(progress)}%
                         </div>
                     </div>
-                    <p className="text-sm md:text-base">{(loadingStates.find((val) => progress >= val.min && progress <= val.max))?.text}</p>
+                    <p className="text-sm md:text-base text-gray-900">{(loadingStates.find((val) => progress >= val.min && progress <= val.max))?.text}</p>
                 </>
             )}
 
             {errors.length > 0 && (
                 <div className="flex flex-col justify-center items-center">
                     <ExclamationCircleIcon className="w-8 h-8 text-red-800" />
-                    <p className="text-sm md:text-base">Something went wrong under the hood.</p>
-                    <p className="text-sm md:text-base">Give it another shot by <a href="/dev" className="text-blue-600 hover:underline">refreshing the page</a>.</p>
+                    <p className="text-sm md:text-base text-gray-900">Something went wrong under the hood.</p>
+                    <p className="text-sm md:text-base text-gray-900">Give it another shot by <a href="/dev" className="text-blue-600 hover:underline">refreshing the page</a>.</p>
                 </div>
             )}
 
