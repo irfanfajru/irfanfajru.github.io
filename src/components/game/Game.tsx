@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Physics } from "@react-three/rapier";
 
 import { World } from "./World";
@@ -11,6 +11,40 @@ import { keyboardMap } from "@/data/keyboardMap";
 import LoadingScreen from "../ui/LoadingScreen";
 
 export default function Game() {
+    const [paused, setPaused] = useState(false);
+
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            setPaused(document.hidden);
+        };
+
+        const handleBlur = () => {
+            setPaused(true);
+        };
+
+        const handleFocus = () => {
+            setPaused(false);
+        };
+
+        document.addEventListener(
+            "visibilitychange",
+            handleVisibilityChange
+        );
+
+        window.addEventListener("blur", handleBlur);
+        window.addEventListener("focus", handleFocus);
+
+        return () => {
+            document.removeEventListener(
+                "visibilitychange",
+                handleVisibilityChange
+            );
+
+            window.removeEventListener("blur", handleBlur);
+            window.removeEventListener("focus", handleFocus);
+        };
+    }, []);
+
     return (
         <div className="relative h-screen w-full">
             <KeyboardControls map={keyboardMap}>
@@ -26,7 +60,7 @@ export default function Game() {
                     <axesHelper args={[10]} />
 
                     <Suspense fallback={null}>
-                        <Physics debug={false} gravity={[0, -9.81, 0]} timeStep="vary">
+                        <Physics debug={false} gravity={[0, -9.81, 0]} timeStep="vary" paused={paused}>
                             <World />
                         </Physics>
                     </Suspense>

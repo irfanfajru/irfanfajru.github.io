@@ -9,6 +9,7 @@ import * as THREE from 'three';
 import { type WheelInfo, useVehicleControls } from '@/hooks/useVehicleControls';
 import type { KeyControls } from '@/data/keyboardMap';
 import { GLTF } from 'three-stdlib'
+import { useGameStore } from '@/store/gameStore';
 
 const spawn = {
     position: [0, 2, 0] as THREE.Vector3Tuple,
@@ -101,10 +102,10 @@ export default function Car() {
     const { vehicleController } = useVehicleControls(chasisBodyRef, wheelsRef as RefObject<THREE.Object3D[]>, wheels);
 
     const { accelerateForce, reverserForce, brakeForce, steerAngle } = {
-        accelerateForce: { value: 20, min: 0, max: 10 },
-        reverserForce: { value: 15, min: 0, max: 10 },
-        brakeForce: { value: 20, min: 0, max: 0.5, step: 0.01 },
-        steerAngle: { value: 40 * (Math.PI / 180), min: 0, max: Math.PI / 12 },
+        accelerateForce: { value: 20, normal: 20, drift: 1000 },
+        reverserForce: { value: 15, normal: 15, drift: 15 },
+        brakeForce: { value: 20, normal: 20, drift: 1000 },
+        steerAngle: { value: 40 * (Math.PI / 180), normal: 40 * (Math.PI / 180), drift: 60 * (Math.PI / 180) },
     };
 
     const ground = useRef<Collider | null>(null);
@@ -115,6 +116,10 @@ export default function Car() {
 
     const cameraPosition = useRef(
         new THREE.Vector3()
+    );
+
+    const isDriftMode = useGameStore(
+        (state) => state.isDriftMode
     );
 
     useFrame((state, delta) => {
@@ -145,6 +150,26 @@ export default function Car() {
             outOfBounds = userData?.outOfBounds;
 
             ground.current = collider;
+        }
+
+        // drift mode
+        if (isDriftMode) {
+            const driftFriction = 0.5;
+
+            controller.setWheelFrictionSlip(2, driftFriction);
+            controller.setWheelFrictionSlip(3, driftFriction);
+
+            accelerateForce.value = accelerateForce.drift;
+            brakeForce.value = brakeForce.drift;
+            steerAngle.value = steerAngle.drift
+
+        } else {
+            controller.setWheelFrictionSlip(2, wheelInfo.frictionSlip)
+            controller.setWheelFrictionSlip(3, wheelInfo.frictionSlip)
+
+            accelerateForce.value = accelerateForce.normal;
+            brakeForce.value = brakeForce.normal;
+            steerAngle.value = steerAngle.normal
         }
 
         // engine force and back force
@@ -178,6 +203,7 @@ export default function Car() {
             chassisRigidBody.setAngvel(new rapier.Vector3(angvel.x, angvel.y, angvel.z), true);
         }
 
+        // respawn
         if (controls.reset || outOfBounds) {
             const chassis = controller.chassis();
             chassis.setTranslation(new rapier.Vector3(...spawn.position), true);
@@ -188,7 +214,7 @@ export default function Car() {
             chassis.setAngvel(new rapier.Vector3(0, 0, 0), true);
         }
 
-        /* camera */
+        // camera
         const position = vehicleController.current?.chassis().translation();
 
         cameraTarget.current.set(
