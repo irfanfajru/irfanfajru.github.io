@@ -11,31 +11,11 @@ export function HUD() {
 
     return (
         <>
-            {/* Top left */}
-            <div className="absolute left-6 top-6 text-black">
-                <h1 className="text-2xl font-bold text-gray-900">
-                    Muhammad Irfan Fajru Ramadhan
-                </h1>
-
-                <p className="text-sm opacity-70 text-gray-700">
-                    Software Developer
-                </p>
-            </div>
-
             {/* top right */}
-            <div className="absolute right-6 top-6 flex gap-6">
+            <div className="absolute left-1/2 top-6 flex -translate-x-1/2 gap-3 md:left-auto md:right-6 md:translate-x-0 md:gap-6 w-full justify-center md:w-auto">
                 <DriftMode />
                 <FastTravel />
-            </div>
-
-            {/* Current section */}
-            {activeSection && (
-                <div className="absolute left-1/2 top-8 -translate-x-1/2 rounded-full bg-white/90 px-6 py-3 shadow-lg">
-                    <span className="font-semibold">
-                        {activeSection}
-                    </span>
-                </div>
-            )}
+            </div >
 
             {/* Controls */}
             <div className="absolute bottom-6 left-6 flex flex-col gap-2">

@@ -5,7 +5,7 @@ import { MapPinIcon } from '@heroicons/react/24/outline'
 export default function FastTravel() {
     return (
         <Menu>
-            <MenuButton className="text-gray-900 inline-flex cursor-pointer focus:outline-none">
+            <MenuButton className="text-gray-900 inline-flex cursor-pointer focus:outline-none hover:bg-gray-100 bg-white shadow-sm rounded-full px-2.5 py-1.5">
                 <MapPinIcon className='w-6 h-6 me-1' />
                 Fast Travel
             </MenuButton>

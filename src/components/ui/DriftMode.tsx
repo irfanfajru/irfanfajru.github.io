@@ -7,7 +7,7 @@ export default function DriftMode() {
     const { isDriftMode, setDriftMode } = useGameStore();
 
     return (
-        <div className='flex gap-2'>
+        <div className='flex gap-2 bg-white shadow-sm rounded-full px-2.5 py-1.5'>
             <Switch
                 checked={isDriftMode}
                 onChange={(setDriftMode)}
