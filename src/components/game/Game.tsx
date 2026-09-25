@@ -9,9 +9,10 @@ import { HUD } from "../ui/HUD";
 import { KeyboardControls, Loader } from "@react-three/drei";
 import { keyboardMap } from "@/data/keyboardMap";
 import LoadingScreen from "../ui/LoadingScreen";
+import { useGameStore } from "@/store/gameStore";
 
 export default function Game() {
-    const [paused, setPaused] = useState(false);
+    const { isPaused, setPaused } = useGameStore();
 
     useEffect(() => {
         const handleVisibilityChange = () => {
@@ -60,7 +61,7 @@ export default function Game() {
                     <axesHelper args={[10]} />
 
                     <Suspense fallback={null}>
-                        <Physics debug={false} gravity={[0, -9.81, 0]} timeStep="vary" paused={paused}>
+                        <Physics debug={false} gravity={[0, -9.81, 0]} timeStep="vary" paused={isPaused}>
                             <World />
                         </Physics>
                     </Suspense>
