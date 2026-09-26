@@ -87,7 +87,9 @@ export function HUD() {
             )}
 
             {/* touch devices */}
-            <TouchControls />
+            {isTouchDevice && (
+                <TouchControls />
+            )}
         </>
     );
 }
