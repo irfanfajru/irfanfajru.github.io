@@ -10,6 +10,7 @@ import { type WheelInfo, useVehicleControls } from '@/hooks/useVehicleControls';
 import type { KeyControls } from '@/data/keyboardMap';
 import { GLTF } from 'three-stdlib'
 import { useGameStore } from '@/store/gameStore';
+import { useTouchControlsStore } from '@/store/touchControlsStore';
 
 const spawn = {
     position: [0, 2, 0] as THREE.Vector3Tuple,
@@ -94,6 +95,7 @@ export default function Car() {
     const { world, rapier } = useRapier();
     const threeControls = useThree((s) => s.controls);
     const [, getKeyboardControls] = useKeyboardControls<keyof KeyControls>();
+    const touchControlsState = useTouchControlsStore();
 
     const chasisMeshRef = useRef<THREE.Mesh>(null!);
     const chasisBodyRef = useRef<RapierRigidBody>(null!);
@@ -173,18 +175,18 @@ export default function Car() {
         }
 
         // engine force and back force
-        const engineForce = Number(controls.forward) * accelerateForce.value - Number(controls.back) * reverserForce.value;
+        const engineForce = Number(controls.forward || touchControlsState.forward) * accelerateForce.value - Number(controls.back || touchControlsState.back) * reverserForce.value;
         controller.setWheelEngineForce(2, engineForce);
         controller.setWheelEngineForce(3, engineForce);
 
         // brake force
-        const wheelBrake = Number(controls.brake) * brakeForce.value;
+        const wheelBrake = Number(controls.brake || touchControlsState.brake) * brakeForce.value;
         controller.setWheelBrake(2, wheelBrake);
         controller.setWheelBrake(3, wheelBrake);
 
         // steering
         const currentSteering = controller.wheelSteering(0) || 0;
-        const steerDirection = Number(controls.left) - Number(controls.right);
+        const steerDirection = Number(controls.left || touchControlsState.left) - Number(controls.right || touchControlsState.right);
 
         const steering = THREE.MathUtils.lerp(currentSteering, steerAngle.value * steerDirection, 0.5);
 
