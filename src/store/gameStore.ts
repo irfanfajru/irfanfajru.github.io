@@ -1,10 +1,5 @@
 import { create } from "zustand";
 
-type Section = {
-  id: string;
-  title: string;
-};
-
 type GameState = {
   activeSection: string | null;
   isPaused: boolean;

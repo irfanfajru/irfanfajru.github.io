@@ -1,6 +1,6 @@
 "use client";
 
-import type { DynamicRayCastVehicleController } from '@dimforge/rapier3d-compat';
+import { QueryFilterFlags, type DynamicRayCastVehicleController } from '@dimforge/rapier3d-compat';
 import { type RapierRigidBody, useAfterPhysicsStep, useRapier } from '@react-three/rapier';
 import { type RefObject, useEffect, useRef } from 'react';
 import * as THREE from 'three';
@@ -62,7 +62,7 @@ export const useVehicleControls = (
 
         const controller = vehicleController.current;
 
-        controller.updateVehicle(world.timestep);
+        controller.updateVehicle(world.timestep, QueryFilterFlags.EXCLUDE_SENSORS);
 
         const { current: wheels } = wheelsRef;
 

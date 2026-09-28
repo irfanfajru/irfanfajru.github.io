@@ -248,6 +248,7 @@ export default function Car() {
                 ref={chasisBodyRef}
                 colliders={"trimesh"}
                 type="dynamic"
+                name='car'
             >
 
                 <group ref={(ref) => {

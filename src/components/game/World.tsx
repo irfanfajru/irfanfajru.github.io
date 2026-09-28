@@ -9,7 +9,6 @@ import { Track } from "./Track";
 export function World() {
     return (
         <>
-            {/* Lighting */}
             <ambientLight intensity={1} />
 
             <directionalLight
@@ -18,15 +17,12 @@ export function World() {
                 castShadow
             />
 
-            {/* Environment */}
             <Environment preset="forest" />
 
-            {/* Ground / road */}
             <Ground />
 
             <Track />
 
-            {/* Player */}
             <Car />
         </>
     );

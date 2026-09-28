@@ -1,17 +1,22 @@
 "use client";
 
-import { useGameStore } from "@/store/gameStore";
 import FastTravel from "./FastTravel";
 import DriftMode from "./DriftMode";
 import TouchControls from "./TouchControls";
 import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
+import { useProgress } from "@react-three/drei";
+import { useGameStore } from "@/store/gameStore";
+import { PortfolioSections } from "@/data/portfolio";
+import AboutMe from "./AboutMe";
+import Education from "./Education";
+import Experience from "./Experience";
 
 export function HUD() {
-    const activeSection = useGameStore(
-        (state) => state.activeSection
-    );
-
+    const { active } = useProgress();
     const isTouchDevice = useIsTouchDevice();
+    const { activeSection } = useGameStore();
+
+    if (active) return null;
 
     return (
         <>
@@ -21,8 +26,39 @@ export function HUD() {
                 <FastTravel />
             </div >
 
-            {/* Controls */}
+            {/* active section */}
+            {activeSection === PortfolioSections.ABOUT_ME && (
+                <AboutMe />
+            )}
 
+            {activeSection === PortfolioSections.EDUCATION && (
+                <Education />
+            )}
+
+            {activeSection === PortfolioSections.EXPERIENCE && (
+                <Experience />
+            )}
+
+            {activeSection === PortfolioSections.SKILLS && (
+                <div className="absolute top-6 left-6">
+                    Skills
+                </div>
+            )}
+
+            {activeSection === PortfolioSections.PROJECTS && (
+                <div className="absolute top-6 left-6">
+                    Projects
+                </div>
+            )}
+
+            {activeSection === PortfolioSections.CONTACT && (
+                <div className="absolute top-6 left-6">
+                    Contact
+                </div>
+            )}
+
+
+            {/* Controls */}
             {/* keyboard */}
             {!isTouchDevice && (
                 <div className="absolute bottom-6 left-6 flex flex-col gap-2">
