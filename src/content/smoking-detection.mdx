@@ -1,0 +1,72 @@
+## Overview
+
+Smoking Detection While Driving Using YOLOv7 is a web-based image detection system developed as a Bachelor's thesis project in Informatics at Ahmad Dahlan University. The application uses a two-stage YOLOv7 object detection pipeline to identify motorbike riders who are smoking by detecting riders and then identifying cigarettes within their bounding boxes.
+
+## Problem / Background
+
+Smoking while riding a motorcycle can distract riders and potentially compromise road safety. Identifying this behavior from images can be challenging because cigarettes are small objects that may be difficult to detect in complex scenes. This project explored the use of computer vision and deep learning to detect potential smoking behavior from uploaded images.
+
+## Solution
+
+Developed a web application that combines a Next.js frontend, a Flask backend API, and a trained YOLOv7 object detection model. Users can upload images through the web interface, which are processed by the backend to detect motorbike riders and identify cigarettes within the detected rider regions. The system returns annotated images with bounding boxes, detection labels, confidence scores, and a summary of detected objects.
+
+## Key Features
+
+- Image Upload for Detection
+- Two-Stage YOLOv7 Object Detection
+- Motorbike Rider Detection
+- Cigarette Detection Within Rider Bounding Boxes
+- Annotated Detection Results with Bounding Boxes
+- Smoking and Non-Smoking Classification Labels
+- Detection Confidence Scores
+- Total Detected Object Summary
+- Detection Result Visualization
+
+## My Role
+
+Responsible for developing the complete application, from the web interface and backend API to model training and integration. My responsibilities included:
+
+- Frontend Development
+- Backend Development
+- Model Training
+- Model Integration
+- Result Visualization
+- Testing & Evaluation
+
+## Technology
+
+**Frontend**
+
+- Next.js
+- Bootstrap
+
+**Backend**
+
+- Flask
+- Python
+
+**Computer Vision & Deep Learning**
+
+- YOLOv7
+
+**Tools**
+
+- Git
+- Postman
+
+## Challenges
+
+One of the main challenges was detecting small cigarette objects in images where riders, motorcycles, and surrounding environments could introduce visual complexity. To address this, the system used a two-stage detection approach: first detecting motorbike riders, then searching for cigarettes within each rider's bounding box.
+
+## Technical Highlights
+
+- Two-Stage Detection Pipeline
+- YOLOv7 Model Training
+- Model Inference API
+- Image Processing & Annotation
+- Frontend–Backend Integration
+- Detection Result Analysis
+
+## Result / Impact
+
+The project delivered an end-to-end web application for detecting potential smoking behavior among motorbike riders in uploaded images. It demonstrated the practical integration of deep learning, computer vision, backend API development, and frontend visualization in a single system.

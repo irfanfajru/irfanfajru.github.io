@@ -3,6 +3,7 @@ import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react'
 import { SkillsSections, SkillsSection } from '@/data/portfolio';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 export default function Skills() {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,21 +40,17 @@ export default function Skills() {
                         </div>
                         {/* body */}
                         <div className="min-h-0 flex-1 overflow-y-auto p-4 md:p-5 space-y-4">
-                            <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
-
-                                <div className='flex flex-col gap-2'>
-                                    {SkillsSections.filter((_, index) => index % 2 == 0).map((val) =>
+                            <ResponsiveMasonry
+                                columnsCountBreakPoints={{
+                                    0: 1,      // mobile
+                                    425: 2,    // md
+                                }} >
+                                <Masonry gutter="1rem" >
+                                    {SkillsSections.map((val) =>
                                         <SkillsCard key={`skillscard-${val.title}`} data={val} />
                                     )}
-                                </div>
-
-                                <div className='flex flex-col gap-2'>
-                                    {SkillsSections.filter((_, index) => index % 2 == 1).map((val) =>
-                                        <SkillsCard key={`skillscard-${val.title}`} data={val} />
-                                    )}
-                                </div>
-
-                            </div>
+                                </Masonry>
+                            </ResponsiveMasonry>
                         </div>
                     </DialogPanel>
                 </div>

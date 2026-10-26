@@ -1,0 +1,64 @@
+## Overview
+
+Open Music API is a RESTful backend service for music and playlist management, inspired by Spotify. Developed as the final project of the FGA Backend Developer training program in collaboration with Dicoding, the application provides APIs for managing songs, albums, and playlists, with authentication, authorization, and additional features for collaboration and data export.
+
+## Problem / Background
+
+Music management platforms require reliable backend services to organize songs, albums, and playlists while ensuring secure access to user-specific resources. Features such as album likes, collaborative playlists, file uploads, and data exports also introduce additional requirements for data consistency, performance, and background processing.
+
+## Solution
+
+Developed a RESTful API using Hapi.js to handle music catalog management, playlist operations, and user authentication. Integrated PostgreSQL for persistent data storage, Redis for caching, and RabbitMQ for message-based background processing. Implemented album cover uploads and playlist exports delivered via email as JSON files to support additional music management workflows.
+
+## Key Features
+
+- Album Management
+- Album Likes
+- Album Cover Upload
+- Authentication & Authorization
+- Collaborative Playlist Management
+- Playlist Management
+- Playlist Export via Email (JSON)
+- Song Management
+- User Management
+
+## My Role
+
+Responsible for designing and developing RESTful APIs, implementing backend business logic, managing database operations, and building authentication and authorization mechanisms. Also implemented caching, background job processing, file upload handling, message broker integration, and email delivery functionality.
+
+## Technology
+
+**Backend**
+
+- Hapi.js
+- RabbitMQ
+
+**Database**
+
+- PostgreSQL
+- Redis
+
+**Tools**
+
+- Git
+- Postman
+- TablePlus
+
+## Challenges
+
+One of the main challenges was coordinating asynchronous operations for playlist exports and email delivery without slowing down API responses. Integrating RabbitMQ for background processing required defining reliable message-handling workflows. Another challenge was balancing data consistency and performance when managing relational music data, collaborative playlists, and frequently accessed resources.
+
+## Technical Highlights
+
+- Authentication / authorization
+- REST API Design
+- Database Management
+- Caching
+- Background jobs
+- File processing
+- Message Broker
+- Email Integration
+
+## Result / Impact
+
+Open Music API delivers a feature-rich backend service for music and playlist management, demonstrating the implementation of RESTful APIs, secure access control, caching, and asynchronous processing. The project showcases practical backend engineering skills through the integration of Hapi.js, PostgreSQL, Redis, and RabbitMQ in a single application.

@@ -1,0 +1,82 @@
+## Overview
+
+A mobile and web-based application for monitoring the daily activities of Telkomsel Sales Agents in the Papua and Maluku regions. Evolved from the Telkomsel Balikpapan Playbook system, this version is tailored to local workflows and environments.
+
+Sales agents check in via the mobile app and are given a 1 km activity radius. Within this zone, they document tasks and upload Digipos files (Excel format) as a condition for checkout. All data is synced to the web dashboard via API for monitoring.
+
+The web application features personal and territorial dashboards for performance recaps, along with detailed activity logs for daily oversight.
+
+## Problem / Background
+
+Monitoring the daily activities and performance of Telkomsel Sales Agents across the Papua and Maluku regions requires reliable activity tracking, task documentation, and centralized reporting. Without a structured monitoring system, verifying field activities, collecting sales documentation, and reviewing performance across territories can be challenging. The existing Telkomsel Balikpapan Playbook system provided a foundation, but the workflows needed to be adapted to the operational requirements of the Papua and Maluku regions.
+
+## Solution
+
+Developed a customized sales monitoring system consisting of a web dashboard and an integrated mobile application. Sales agents can check in within a 1 km activity radius, document their tasks, and upload Digipos Excel files as a requirement for checking out. Activity data is synchronized with the web application through APIs, enabling administrators to monitor daily activities, review reports, and track performance through personal and territorial dashboards.
+
+## Key Features
+
+- Authentication & AuthorizationRole Management
+- Activity Logs
+- Daily Activity Reports
+- Mobile App Integration
+- Mobile App Version Management
+- Non-Sales Activity Category Management
+- Personal Dashboard
+- Place Category Management
+- Role Management
+- Sales Agent Task Documentation Management
+- Territory Dashboard
+- Territory Recap & Reporting
+- User Management
+
+## My Role
+
+Responsible for developing and maintaining the web application across both frontend and backend layers. Handled dashboard and interface development, business logic implementation, API integration with the mobile application, database operations, authentication and authorization, reporting functionality, and bug fixing to support reliable sales activity monitoring.
+
+## Technology
+
+**Frontend**
+
+- Laravel livewire
+- Bootstrap
+
+**Backend**
+
+- Laravel
+- PHP
+
+**Mobile**
+
+- Flutter
+
+**Database**
+
+- MySQL
+
+**Tools**
+
+- Git
+- Postman
+
+## Challenges
+
+One of the main challenges was adapting the existing Balikpapan Playbook workflow to the operational needs of sales agents in Papua and Maluku. Implementing location-based activity tracking with a 1 km radius and enforcing Digipos Excel uploads before checkout required careful handling of validation rules and activity workflows. Another challenge was ensuring reliable data synchronization between the Flutter mobile application and the Laravel-based web dashboard through APIs.
+
+## Technical Highlights
+
+- Authentication / authorization
+- REST API
+- Frontend Development
+- Backend Development
+- API Integration
+- Location-Based Validation
+- File Uplaod Validation
+- Reporting & Analytics
+- Access Control
+- Databse Management
+- Deployment
+
+## Result / Impact
+
+Noken Super App provides a centralized platform for monitoring Telkomsel Sales Agent activities across Papua and Maluku. By connecting mobile field reporting with web-based dashboards, the system supports more structured activity documentation, location-based check-in and checkout workflows, and centralized performance monitoring across individual agents and territories.
