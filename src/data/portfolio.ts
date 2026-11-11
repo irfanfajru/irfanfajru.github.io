@@ -18,7 +18,7 @@ export type SkillsSection = {
   skills : string[]
 }
 
-export const SkillsSections: SkillsSection[] = [
+export const skillsSections: SkillsSection[] = [
   {
     icon: ComputerDesktopIcon,
     title:"Frontend",
@@ -80,7 +80,7 @@ export type Certificate = {
   date: string
 }
 
-export const Certificates: Certificate[] = [
+export const certificates: Certificate[] = [
   {
         title: "Google IT Automation with Python",
         date: "May 2024"

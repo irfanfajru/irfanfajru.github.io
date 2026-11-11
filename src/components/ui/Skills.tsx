@@ -2,7 +2,7 @@
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react'
-import { SkillsSections, SkillsSection } from '@/data/portfolio';
+import { skillsSections, SkillsSection } from '@/data/portfolio';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 export default function Skills() {
@@ -46,7 +46,7 @@ export default function Skills() {
                                     425: 2,    // md
                                 }} >
                                 <Masonry gutter="1rem" >
-                                    {SkillsSections.map((val) =>
+                                    {skillsSections.map((val) =>
                                         <SkillsCard key={`skillscard-${val.title}`} data={val} />
                                     )}
                                 </Masonry>
