@@ -6,7 +6,7 @@ export default function
     return (
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 flex flex-col gap-2 items-center w-full max-w-xs p-4 bg-white rounded-lg shadow-sm">
             <p className="text-sm font-normal text-gray-900">Let's get in touch</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 items-center justify-center">
                 {contacts.map((contact, i) => (
                     <ContactLink key={`contact-${i}`} data={contact} />
                 ))}

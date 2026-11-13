@@ -6,7 +6,7 @@ import TouchControls from "./TouchControls";
 import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 import { useProgress } from "@react-three/drei";
 import { useGameStore } from "@/store/gameStore";
-import { PortfolioSections } from "@/data/portfolio";
+import { PortfolioSection } from "@/data/portfolio";
 import AboutMe from "./AboutMe";
 import Education from "./Education";
 import Experience from "./Experience";
@@ -27,31 +27,31 @@ export function HUD() {
             </div >
 
             {/* active section */}
-            {activeSection === PortfolioSections.ABOUT_ME && (
+            {activeSection === PortfolioSection.ABOUT_ME && (
                 <AboutMe />
             )}
 
-            {activeSection === PortfolioSections.EDUCATION && (
+            {activeSection === PortfolioSection.EDUCATION && (
                 <Education />
             )}
 
-            {activeSection === PortfolioSections.EXPERIENCE && (
+            {activeSection === PortfolioSection.EXPERIENCE && (
                 <Experience />
             )}
 
-            {activeSection === PortfolioSections.SKILLS && (
+            {activeSection === PortfolioSection.SKILLS && (
                 <div className="absolute top-6 left-6">
                     Skills
                 </div>
             )}
 
-            {activeSection === PortfolioSections.PROJECTS && (
+            {activeSection === PortfolioSection.PROJECTS && (
                 <div className="absolute top-6 left-6">
                     Projects
                 </div>
             )}
 
-            {activeSection === PortfolioSections.CONTACT && (
+            {activeSection === PortfolioSection.CONTACT && (
                 <div className="absolute top-6 left-6">
                     Contact
                 </div>

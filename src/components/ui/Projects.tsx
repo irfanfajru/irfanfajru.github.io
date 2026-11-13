@@ -10,8 +10,8 @@ export default function Projects() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 flex flex-col gap-2 items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-sm">
-            <p className="text-sm font-normal text-center">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 flex flex-col gap-2 items-center w-full max-w-xs p-4 bg-white rounded-lg shadow-sm">
+            <p className="text-sm font-normal text-center text-gray-900">
                 A collection of things I've built.
             </p>
 
