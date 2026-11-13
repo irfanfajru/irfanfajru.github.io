@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
       '.node',
       '.json',
     ],
+    rules: {
+      '*.mdx': {
+        loaders: [{ loader: '@mdx-js/loader' }],
+        as: '*.js',
+      },
+    },
   },
 };
 
