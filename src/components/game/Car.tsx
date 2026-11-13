@@ -120,7 +120,7 @@ export default function Car() {
         new THREE.Vector3()
     );
 
-    const { isDriftMode, isPaused } = useGameStore();
+    const { isDriftMode, isPaused, fastTravel, setFastTravel } = useGameStore();
 
     useFrame((state, delta) => {
         if (!chasisMeshRef.current || !vehicleController.current || !!threeControls || isPaused) return;
@@ -212,6 +212,18 @@ export default function Car() {
             chassis.setRotation(spawnQuat, true);
             chassis.setLinvel(new rapier.Vector3(0, 0, 0), true);
             chassis.setAngvel(new rapier.Vector3(0, 0, 0), true);
+        }
+
+        // fast travel
+        if (fastTravel.isFastTravel) {
+            const chassis = controller.chassis();
+            chassis.setTranslation(new rapier.Vector3(...fastTravel.position), true);
+            const spawnRot = new THREE.Euler(...fastTravel.rotation);
+            const spawnQuat = new THREE.Quaternion().setFromEuler(spawnRot);
+            chassis.setRotation(spawnQuat, true);
+            chassis.setLinvel(new rapier.Vector3(0, 0, 0), true);
+            chassis.setAngvel(new rapier.Vector3(0, 0, 0), true);
+            setFastTravel({ isFastTravel: false })
         }
 
         // camera
