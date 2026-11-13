@@ -10,6 +10,9 @@ import { PortfolioSection } from "@/data/portfolio";
 import AboutMe from "./AboutMe";
 import Education from "./Education";
 import Experience from "./Experience";
+import Skills from "./Skills";
+import Projects from "./Projects";
+import Contact from "./Contact";
 
 export function HUD() {
     const { active } = useProgress();
@@ -40,21 +43,15 @@ export function HUD() {
             )}
 
             {activeSection === PortfolioSection.SKILLS && (
-                <div className="absolute top-6 left-6">
-                    Skills
-                </div>
+                <Skills />
             )}
 
             {activeSection === PortfolioSection.PROJECTS && (
-                <div className="absolute top-6 left-6">
-                    Projects
-                </div>
+                <Projects />
             )}
 
             {activeSection === PortfolioSection.CONTACT && (
-                <div className="absolute top-6 left-6">
-                    Contact
-                </div>
+                <Contact />
             )}
 
 

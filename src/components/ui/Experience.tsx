@@ -1,11 +1,13 @@
 "use client"
 import { experiences, Experience as ExperienceType } from '@/data/experience';
+import { useGameStore } from '@/store/gameStore';
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react'
 
 export default function Experience() {
     const [isOpen, setIsOpen] = useState(false);
+    const { setPaused } = useGameStore();
 
     return (
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 flex flex-col gap-2 items-center w-full max-w-xs p-4 bg-white rounded-lg shadow-sm">
@@ -14,12 +16,19 @@ export default function Experience() {
             </p>
 
             <button
-                onClick={() => setIsOpen(true)}
+                onClick={() => {
+                    setPaused(true)
+                    setIsOpen(true)
+                }}
                 className="inline-flex px-2.5 py-1.5 text-xs font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 cursor-pointer">
                 View Experience
             </button>
 
-            <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
+            <Dialog open={isOpen} onClose={() => {
+                setPaused(false)
+                setIsOpen(false)
+            }}
+                className="relative z-50">
                 <DialogBackdrop className="fixed inset-0 bg-black/30" />
 
                 <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
@@ -31,7 +40,10 @@ export default function Experience() {
                                 Experience
                             </h3>
                             <button type="button"
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => {
+                                    setPaused(false)
+                                    setIsOpen(false)
+                                }}
                                 className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center cursor-pointer" >
                                 <XMarkIcon className="w-6 h-6" />
                                 <span className="sr-only">Close modal</span>
@@ -53,6 +65,8 @@ export default function Experience() {
         </div>
     )
 }
+
+
 
 function ExperienceTimelineItem({ data }: { data: ExperienceType }) {
     const isActive = !data.endDate;

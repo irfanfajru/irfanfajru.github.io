@@ -7,7 +7,7 @@ import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { BallCollider, RigidBody } from '@react-three/rapier'
 import { useGameStore } from '@/store/gameStore'
-import { PortfolioSections } from '@/data/portfolio'
+import { PortfolioSection } from '@/data/portfolio'
 
 type GLTFResult = GLTF & {
     nodes: {
@@ -104,7 +104,7 @@ export function Track() {
             <RigidBody type='fixed' colliders={false} sensor
                 onIntersectionEnter={(payload) => {
                     if (payload.other.rigidBodyObject?.name === "car" && !activeSection) {
-                        setActiveSection(PortfolioSections.ABOUT_ME)
+                        setActiveSection(PortfolioSection.ABOUT_ME)
                     }
                 }}
                 onIntersectionExit={(payload) => {
@@ -128,7 +128,7 @@ export function Track() {
             <RigidBody type='fixed' colliders={false} sensor
                 onIntersectionEnter={(payload) => {
                     if (payload.other.rigidBodyObject?.name === "car" && !activeSection) {
-                        setActiveSection(PortfolioSections.EDUCATION)
+                        setActiveSection(PortfolioSection.EDUCATION)
                     }
                 }}
                 onIntersectionExit={(payload) => {
@@ -152,7 +152,7 @@ export function Track() {
             <RigidBody type='fixed' colliders={false} sensor
                 onIntersectionEnter={(payload) => {
                     if (payload.other.rigidBodyObject?.name === "car" && !activeSection) {
-                        setActiveSection(PortfolioSections.EXPERIENCE)
+                        setActiveSection(PortfolioSection.EXPERIENCE)
                     }
                 }}
                 onIntersectionExit={(payload) => {
@@ -176,7 +176,7 @@ export function Track() {
             <RigidBody type='fixed' colliders={false} sensor
                 onIntersectionEnter={(payload) => {
                     if (payload.other.rigidBodyObject?.name === "car" && !activeSection) {
-                        setActiveSection(PortfolioSections.SKILLS)
+                        setActiveSection(PortfolioSection.SKILLS)
                     }
                 }}
                 onIntersectionExit={(payload) => {
@@ -200,7 +200,7 @@ export function Track() {
             <RigidBody type='fixed' colliders={false} sensor
                 onIntersectionEnter={(payload) => {
                     if (payload.other.rigidBodyObject?.name === "car" && !activeSection) {
-                        setActiveSection(PortfolioSections.PROJECTS)
+                        setActiveSection(PortfolioSection.PROJECTS)
                     }
                 }}
                 onIntersectionExit={(payload) => {
@@ -224,7 +224,7 @@ export function Track() {
             <RigidBody type='fixed' colliders={false} sensor
                 onIntersectionEnter={(payload) => {
                     if (payload.other.rigidBodyObject?.name === "car" && !activeSection) {
-                        setActiveSection(PortfolioSections.CONTACT)
+                        setActiveSection(PortfolioSection.CONTACT)
                     }
                 }}
                 onIntersectionExit={(payload) => {

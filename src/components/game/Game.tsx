@@ -10,10 +10,12 @@ import { KeyboardControls, Stats, useProgress } from "@react-three/drei";
 import { keyboardMap } from "@/data/keyboardMap";
 import LoadingScreen from "../ui/LoadingScreen";
 import { usePageVisible } from "@/hooks/usePageVisible";
+import { useGameStore } from "@/store/gameStore";
 
 export default function Game() {
     const isVisible = usePageVisible();
     const { active: isLoading } = useProgress();
+    const { isPaused } = useGameStore();
 
     return (
         <div className="relative h-screen w-full">
@@ -38,7 +40,7 @@ export default function Game() {
                     <axesHelper args={[10]} />
                     <Stats />
                     <Suspense fallback={null}>
-                        <Physics debug={false} gravity={[0, -9.81, 0]} timeStep="vary" paused={!isVisible || isLoading}>
+                        <Physics debug={false} gravity={[0, -9.81, 0]} timeStep="vary" paused={!isVisible || isLoading || isPaused}>
                             <World />
                         </Physics>
                     </Suspense>
