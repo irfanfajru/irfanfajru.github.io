@@ -6,6 +6,18 @@ const nextConfig: NextConfig = {
   // allowedDevOrigins: ['0.0.0.0'],
   // Configure pageExtensions to include md and mdx
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  turbopack: {
+    resolveExtensions: [
+      '.mdx',
+      '.tsx',
+      '.ts',
+      '.jsx',
+      '.js',
+      '.mjs',
+      '.node',
+      '.json',
+    ],
+  },
 };
 
 const withMDX = createMDX({
