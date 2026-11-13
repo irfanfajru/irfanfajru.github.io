@@ -37,7 +37,7 @@ export default function Game() {
                     }
                     dpr={.9}
                 >
-                    <axesHelper args={[10]} />
+                    {/* <axesHelper args={[10]} /> */}
                     <Stats />
                     <Suspense fallback={null}>
                         <Physics debug={false} gravity={[0, -9.81, 0]} timeStep="vary" paused={!isVisible || isLoading || isPaused}>
