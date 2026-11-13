@@ -25,8 +25,8 @@ export default function Experience() {
             </button>
 
             <Dialog open={isOpen} onClose={() => {
-                setPaused(false)
                 setIsOpen(false)
+                requestAnimationFrame(() => setPaused(false))
             }}
                 className="relative z-50">
                 <DialogBackdrop className="fixed inset-0 bg-black/30" />
@@ -41,8 +41,8 @@ export default function Experience() {
                             </h3>
                             <button type="button"
                                 onClick={() => {
-                                    setPaused(false)
                                     setIsOpen(false)
+                                    requestAnimationFrame(() => setPaused(false))
                                 }}
                                 className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center cursor-pointer" >
                                 <XMarkIcon className="w-6 h-6" />

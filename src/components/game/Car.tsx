@@ -120,12 +120,10 @@ export default function Car() {
         new THREE.Vector3()
     );
 
-    const isDriftMode = useGameStore(
-        (state) => state.isDriftMode
-    );
+    const { isDriftMode, isPaused } = useGameStore();
 
     useFrame((state, delta) => {
-        if (!chasisMeshRef.current || !vehicleController.current || !!threeControls) return;
+        if (!chasisMeshRef.current || !vehicleController.current || !!threeControls || isPaused) return;
 
         const t = 1.0 - 0.01 ** delta;
 
