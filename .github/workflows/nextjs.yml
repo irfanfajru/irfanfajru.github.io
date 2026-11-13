@@ -73,6 +73,12 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Debug build environment
+        run: |
+          node --version
+          npm --version
+          npm ls next @next/mdx @mdx-js/loader @mdx-js/react
+          cat package.json
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build --webpack
       - name: Upload artifact
