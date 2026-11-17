@@ -256,7 +256,7 @@ export default function Car() {
                 rotation={spawn.rotation}
                 canSleep={false}
                 ref={chasisBodyRef}
-                colliders={"trimesh"}
+                colliders={false}
                 type="dynamic"
                 name='car'
             >
@@ -391,6 +391,7 @@ export default function Car() {
                     />
                 </group>
 
+                <CuboidCollider args={[2.4, 0.6, 1]} position={[-0.1, 0.8, 0]} />
                 <group ref={chasisMeshRef} position={[-0.469, 0.649, 0]}>
                     <mesh
                         castShadow
