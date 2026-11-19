@@ -622,12 +622,14 @@ export function Track() {
                 />
             </RigidBody>
 
-            <mesh receiveShadow geometry={nodes.Plane.geometry} material={materials.concrete} />
-            <mesh
-                receiveShadow
-                geometry={nodes.Plane_1.geometry}
-                material={materials.concrete}
-            />
+            <RigidBody type='fixed' colliders="cuboid">
+                <mesh receiveShadow geometry={nodes.Plane.geometry} material={materials.concrete} />
+                <mesh
+                    receiveShadow
+                    geometry={nodes.Plane_1.geometry}
+                    material={materials.concrete}
+                />
+            </RigidBody>
         </group>
     )
 }

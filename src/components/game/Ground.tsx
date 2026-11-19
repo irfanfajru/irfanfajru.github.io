@@ -10,11 +10,11 @@ export function Ground() {
         <group>
             <RigidBody type="fixed" colliders="cuboid">
                 <mesh
-                    position={[0, -1, -16]}
+                    position={[0, -3, -16]}
                     receiveShadow
                 >
                     <boxGeometry
-                        args={[150, 1, 150]}
+                        args={[150, 5, 150]}
                     />
 
                     <meshStandardMaterial

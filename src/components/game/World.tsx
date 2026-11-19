@@ -3,7 +3,6 @@
 import { Environment } from "@react-three/drei";
 
 import Car from "./Car";
-import { Ground } from "./Ground";
 import { Track } from "./Track";
 
 export function World() {
@@ -18,8 +17,6 @@ export function World() {
             />
 
             <Environment preset="forest" />
-
-            <Ground />
 
             <Track />
 
