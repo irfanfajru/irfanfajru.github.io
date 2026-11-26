@@ -30,30 +30,12 @@ export function HUD() {
             </div >
 
             {/* active section */}
-            {activeSection === PortfolioSection.ABOUT_ME && (
-                <AboutMe />
-            )}
-
-            {activeSection === PortfolioSection.EDUCATION && (
-                <Education />
-            )}
-
-            {activeSection === PortfolioSection.EXPERIENCE && (
-                <Experience />
-            )}
-
-            {activeSection === PortfolioSection.SKILLS && (
-                <Skills />
-            )}
-
-            {activeSection === PortfolioSection.PROJECTS && (
-                <Projects />
-            )}
-
-            {activeSection === PortfolioSection.CONTACT && (
-                <Contact />
-            )}
-
+            <AboutMe show={activeSection === PortfolioSection.ABOUT_ME} />
+            <Education show={activeSection === PortfolioSection.EDUCATION} />
+            <Experience show={activeSection === PortfolioSection.EXPERIENCE} />
+            <Skills show={activeSection === PortfolioSection.SKILLS} />
+            <Projects show={activeSection === PortfolioSection.PROJECTS} />
+            <Contact show={activeSection === PortfolioSection.CONTACT} />
 
             {/* Controls */}
             {/* keyboard */}

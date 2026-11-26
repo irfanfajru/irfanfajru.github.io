@@ -36,7 +36,9 @@ export default function ProjectDetail(
                 </button>
 
                 {/* modal content */}
-                <DialogPanel className="bg-white flex justify-center w-full h-full max-h-screen overflow-y-auto rounded-t-lg shadow-sm">
+                <DialogPanel
+                    transition
+                    className="bg-white flex justify-center w-full h-full max-h-screen overflow-y-auto rounded-t-lg shadow-sm transition duration-300 data-closed:translate-y-full data-closed:opacity-0">
                     {/* body */}
                     <div className="w-full max-w-4xl p-4 pt-12">
                         <h1 className="text-3xl font-bold text-gray-900 mb-2">{data.title}</h1>
@@ -60,7 +62,7 @@ export default function ProjectDetail(
                             <Image width={1200} height={1200} className="w-full h-full object-cover transition-transform group-hover:scale-110" src={data.image.src} alt="" />
                         </div>
 
-                        <article className="prose prose-gray max-w-none pb-12">
+                        <article className="prose prose-gray max-w-none pb-12 text-justify">
                             <Content />
                         </article>
 
